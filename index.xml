@@ -1,0 +1,10 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>童帅的博客</title>
+        <link>http://example.org/</link>
+        <description>童帅的博客</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>tommpat163@163.com (童帅)</managingEditor>
+            <webMaster>tommpat163@163.com (童帅)</webMaster>
+            <atom:link href="http://example.org/index.xml" rel="self" type="application/rss+xml" />
+        </channel>
+</rss>
