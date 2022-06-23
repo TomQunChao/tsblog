@@ -1,12 +1,10 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>童帅的博客</title>
-        <link>http://example.org/</link>
-        <description>童帅的博客</description>
+        <title>All Posts - 童帅的博客</title>
+        <link>http://example.org/posts/</link>
+        <description>All Posts | 童帅的博客</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>tommpat163@163.com (童帅)</managingEditor>
-            <webMaster>tommpat163@163.com (童帅)</webMaster>
-            <atom:link href="http://example.org/index.xml" rel="self" type="application/rss+xml" />
-        <item>
+            <webMaster>tommpat163@163.com (童帅)</webMaster><atom:link href="http://example.org/posts/" rel="self" type="application/rss+xml" /><item>
     <title></title>
     <link>http://example.org/note/</link>
     <pubDate>Mon, 01 Jan 0001 00:00:00 &#43;0000</pubDate>
