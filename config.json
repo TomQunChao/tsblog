@@ -45,6 +45,23 @@
         ]
     ],
     "category_list": {
+        "development": {
+            "name": "开发知识",
+            "type": "directory",
+            "sub": {
+                "algorithm": {
+                    "name": "",
+                    "type": "directory",
+                    "sub": {
+                        "double-stack": {
+                            "name": "双栈法搜索节点间任意路径学习",
+                            "type": "article",
+                            "mtime": 1668338655.3750584
+                        }
+                    }
+                }
+            }
+        },
         "life": {
             "name": "生活",
             "type": "directory"
