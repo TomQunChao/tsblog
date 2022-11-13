@@ -50,7 +50,7 @@
             "type": "directory",
             "sub": {
                 "algorithm": {
-                    "name": "",
+                    "name": "算法",
                     "type": "directory",
                     "sub": {
                         "double-stack": {
