@@ -1,0 +1,445 @@
+{
+    "src_root": [
+        ".."
+    ],
+    "dst_root": [
+        "blogs"
+    ],
+    "img_path_name": "img",
+    "assets_path_name": "assets",
+    "about": "This is TongShuai's blog",
+    "about_photo": "",
+    "ul_tag": "<ul class=\"ax-menu ax-full\" axMenu>",
+    "ul_tag_t": "</ul>",
+    "li_tag": "<li>",
+    "li_tag_t": "</li>",
+    "name_tag": "<span class=\"ax-name\">",
+    "name_tag_t": "</span>",
+    "force_update": false,
+    "auto_deploy": true,
+    "theme": "night",
+    "disallow_dir": [
+        [
+            "information_security",
+            "virus_analysis"
+        ],
+        [
+            "ctf_writeup",
+            "2021"
+        ],
+        [
+            "ctf_writeup",
+            "2022-backup"
+        ],
+        [
+            "ctf_writeup",
+            "leetcode"
+        ],
+        [
+            "ai",
+            "federated_learning"
+        ],
+        [
+            "ai",
+            "nlp"
+        ]
+    ],
+    "category_list": {
+        "life": {
+            "name": "生活",
+            "type": "directory"
+        },
+        "ctf_writeup": {
+            "name": "CTF WP",
+            "type": "directory",
+            "sub": {
+                "buuoj": {
+                    "name": "在buuoj的刷题记录",
+                    "type": "article",
+                    "mtime": 1668263170.984529
+                },
+                "ctfhub": {
+                    "name": "在ctfhub的刷题记录",
+                    "type": "article",
+                    "mtime": 1668263500.1748111
+                },
+                "xctf": {
+                    "name": "XCTF刷题笔记",
+                    "type": "article",
+                    "mtime": 1668263534.4549596
+                },
+                "2022": {
+                    "name": "",
+                    "type": "directory",
+                    "sub": {
+                        "seccon-quals": {
+                            "name": "SECCON CTF 2022",
+                            "type": "article",
+                            "mtime": 1668326209.7296877
+                        }
+                    }
+                }
+            }
+        },
+        "ai": {
+            "name": "人工智能",
+            "type": "directory",
+            "sub": {
+                "GAN": {
+                    "name": "GAN学习",
+                    "type": "article",
+                    "mtime": 1668263666.9008904
+                },
+                "GNN": {
+                    "name": "Graph Neural Network",
+                    "type": "article",
+                    "mtime": 1668263643.8337023
+                },
+                "survey": {
+                    "name": "AI综述",
+                    "type": "article",
+                    "mtime": 1668263687.2467349
+                },
+                "torch": {
+                    "name": "PyTorch学习笔记",
+                    "type": "article",
+                    "mtime": 1668263596.3898692
+                }
+            }
+        },
+        "information_security": {
+            "name": "信息安全",
+            "type": "directory",
+            "sub": {
+                "pwn": {
+                    "name": "漏洞挖掘",
+                    "type": "directory",
+                    "sub": {
+                        "paper_reading": {
+                            "name": "论文阅读笔记",
+                            "type": "directory",
+                            "sub": {
+                                "Analysis-of-DTLS-Implementations-Using-Protocol-State-Fuzzing": {
+                                    "name": "Analysis of DTLS Implementations Using Protocol State Fuzzing",
+                                    "type": "article",
+                                    "mtime": 1668306119.7025223
+                                },
+                                "breaking-through-binarys-compiler": {
+                                    "name": "Breaking Through Binaries: Compiler-quality Instrumentation for Better Binary-only Fuzzing",
+                                    "type": "article",
+                                    "mtime": 1668306119.7045221
+                                },
+                                "Diane-Identifying-Fuzzing-Triggers-in-Apps-to-Generate-Under-constrained-Inputs-for-IoT-Devices": {
+                                    "name": "Diane: Identifying Fuzzing Triggers in Apps to Generate Under-constrained Inputs for IoT Devices",
+                                    "type": "article",
+                                    "mtime": 1668306119.7055225
+                                },
+                                "EcoFuzz-Adaptive-Energy-Saving-Greybox-Fuzzing-as-a-Variant-of-the-Adversarial-Multi-Armed-Bandit": {
+                                    "name": "EcoFuzz: Adaptive Energy-Saving Greybox Fuzzing as a Variant of the Adversarial Multi-Armed Bandit",
+                                    "type": "article",
+                                    "mtime": 1668306119.7065222
+                                },
+                                "FuzzGen-Automatic-Fuzzer-Generation": {
+                                    "name": "FuzzGen: Automatic Fuzzer Generation",
+                                    "type": "article",
+                                    "sub": {
+                                        "image": {
+                                            "name": "",
+                                            "type": "directory",
+                                            "sub": {
+                                                "note": {
+                                                    "name": "",
+                                                    "type": "directory"
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "mtime": 1668306119.7075222
+                                },
+                                "Fuzzification-Anti-Fuzzing-Techniques": {
+                                    "name": "Fuzzification: Anti-Fuzzing Techniques",
+                                    "type": "article",
+                                    "mtime": 1668306119.7085223
+                                },
+                                "Fuzzing-Error-Handling-Code-using-Context-Sensitive-Software-Fault-Injection": {
+                                    "name": "Fuzzing Error Handling Code using Context-Sensitive Software Fault Injection",
+                                    "type": "article",
+                                    "sub": {
+                                        "image": {
+                                            "name": "",
+                                            "type": "directory",
+                                            "sub": {
+                                                "note": {
+                                                    "name": "",
+                                                    "type": "directory"
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "mtime": 1668306119.7095222
+                                },
+                                "icsfuzz-Manipulating-io-s-and": {
+                                    "name": "ICSFuzz: Manipulating I/Os and Repurposing Binary Code to Enable Instrumented Fuzzing in ICS Control Applications阅读笔记",
+                                    "type": "article",
+                                    "mtime": 1668306119.7115219
+                                },
+                                "Nyx-Greybox-Hypervisor-Fuzzing-using-Fast-Snapshots-and-Affine-Types": {
+                                    "name": "Nyx: Greybox Hypervisor Fuzzing using Fast Snapshots and Affine Types",
+                                    "type": "article",
+                                    "mtime": 1668306119.7125223
+                                },
+                                "ParmeSan-Sanitizer-guided-Greybox-Fuzzing": {
+                                    "name": "ParmeSan: Sanitizer-guided Greybox Fuzzing",
+                                    "type": "article",
+                                    "mtime": 1668306119.7135222
+                                },
+                                "sok": {
+                                    "name": "(State of) The Art of War: Offensive Techniques in Binary Analysis",
+                                    "type": "article",
+                                    "mtime": 1668306119.7145233
+                                },
+                                "unifuzz-a-holistic-and-pragmatic": {
+                                    "name": "UNIFUZZ: A Holistic and Pragmatic Metrics-Driven Platform for Evaluating  Fuzzers",
+                                    "type": "article",
+                                    "mtime": 1668306119.7145233
+                                }
+                            }
+                        }
+                    }
+                },
+                "rev": {
+                    "name": "逆向工程",
+                    "type": "directory",
+                    "sub": {
+                        "AntiDebug": {
+                            "name": "反调试技术合集",
+                            "type": "article",
+                            "mtime": 1668306119.7165222
+                        },
+                        "APC-injec": {
+                            "name": "APC注入技术",
+                            "type": "article",
+                            "mtime": 1668306119.7175221
+                        },
+                        "binwalk": {
+                            "name": "Binwalk安装踩坑指南",
+                            "type": "article",
+                            "mtime": 1668306119.7185247
+                        },
+                        "boches": {
+                            "name": "Boches虚拟机学习",
+                            "type": "article",
+                            "mtime": 1668306119.7195222
+                        },
+                        "Detours": {
+                            "name": "Detours学习",
+                            "type": "article",
+                            "mtime": 1668306119.7205224
+                        },
+                        "dynamic_anatool": {
+                            "name": "三个用于恶意软件动态分析的使用方法",
+                            "type": "article",
+                            "mtime": 1668306119.7215223
+                        },
+                        "Havens_gate": {
+                            "name": "天堂之门技术",
+                            "type": "article",
+                            "mtime": 1668306119.7225223
+                        },
+                        "IAThook": {
+                            "name": "IAT hook",
+                            "type": "article",
+                            "mtime": 1668306119.7235224
+                        },
+                        "paper_reading": {
+                            "name": "论文阅读笔记",
+                            "type": "directory",
+                            "sub": {
+                                "CruParamer-Learning-on-Parameter-Augmented-API-Sequences-for-Malware-Detection": {
+                                    "name": "CruParamer: Learning on Parameter-Augmented API Sequences for Malware Detection",
+                                    "type": "article",
+                                    "mtime": 1668306119.724522
+                                },
+                                "does-every-second-count": {
+                                    "name": "Does Every Second Count?  Time-based Evolution of Malware Behavior in Sandboxes",
+                                    "type": "article",
+                                    "mtime": 1668306119.7255223
+                                },
+                                "exspectre-hiding-malware-in-speculativeo-execution": {
+                                    "name": "ExSpectre: Hiding Malware in Speculative Execution",
+                                    "type": "article",
+                                    "mtime": 1668306119.7265236
+                                },
+                                "Forecasting-Malware-Capabilities-From-Cyber-Attack-Memory-Images": {
+                                    "name": "Forecasting Malware Capabilities From Cyber Attack Memory Images",
+                                    "type": "article",
+                                    "mtime": 1668306119.7275229
+                                },
+                                "how-ml-is-solv-binary-function": {
+                                    "name": "How Machine Learning Is Solving the Binary Function Similarity Problem",
+                                    "type": "article",
+                                    "mtime": 1668306119.7295225
+                                },
+                                "Identifying-ATTCK-Tactics-in-Android-Malware-Control-Flow-Graph-Through-Graph-Representation-Learning-and-Interpretability": {
+                                    "name": "Identifying ATT&CK Tactics in Android Malware Control Flow Graph Through Graph Representation Learning and Interpretability",
+                                    "type": "article",
+                                    "mtime": 1668306119.7305224
+                                },
+                                "Measuring-and-Modeling-the-Label-Dynamics-of-Online-Anti-Malware-Engines": {
+                                    "name": "Measuring and Modeling the Label Dynamics of Online Anti-Malware Engines",
+                                    "type": "article",
+                                    "mtime": 1668306119.731522
+                                },
+                                "PatchGuard-A-Provably-Robust-Defense-against-Adversarial-Patches-via-Small-Receptive-Fieldsand-Masking": {
+                                    "name": "PatchGuard: A Provably Robust Defense against Adversarial Patches via Small Receptive Fieldsand Masking",
+                                    "type": "article",
+                                    "mtime": 1668306119.7325222
+                                },
+                                "Prevalence-and-Impact-of-Low-Entropy-Packing-Schemes-in-the-Malware-Ecosystem": {
+                                    "name": "Prevalence and Impact of Low-Entropy Packing Schemes in the Malware Ecosystem",
+                                    "type": "article",
+                                    "mtime": 1668306119.7335222
+                                },
+                                "Survivalism_Systematic_Analysis_of_Windows_Malware_Living-Off-The-Land": {
+                                    "name": "Survivalism: Systematic Analysis of Windows Malware Living-Off-The-Land",
+                                    "type": "article",
+                                    "mtime": 1668306119.735522
+                                },
+                                "TESSERACT-Eliminating-Experimental-Bias-in-Malware-Classification-across-Space-and-Time": {
+                                    "name": "TESSERACT: Eliminating Experimental Bias in Malware Classification across Space and Time",
+                                    "type": "article",
+                                    "sub": {
+                                        "image": {
+                                            "name": "",
+                                            "type": "directory",
+                                            "sub": {
+                                                "note": {
+                                                    "name": "",
+                                                    "type": "directory"
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "mtime": 1668306119.736522
+                                },
+                                "The-Circle-Of-Life-A-Large-Scale-Study-of-The-IoT-Malware-Lifecycle": {
+                                    "name": "The Circle Of Life: A Large-Scale Study of The IoT Malware Lifecycle",
+                                    "type": "article",
+                                    "mtime": 1668306119.7375224
+                                },
+                                "understanding-malious-cross_library-data-harvesting": {
+                                    "name": "Understanding Malicious Cross-library Data Harvesting on Android",
+                                    "type": "article",
+                                    "mtime": 1668306119.7385216
+                                },
+                                "When-Malware-is-Packin-Heat-Limits-of-Machine-Learning-Classifiers-Based-on-Static-Analysis-Features": {
+                                    "name": "When Malware is Packin' Heat; Limits of Machine Learning Classifiers Based on Static Analysis Features",
+                                    "type": "article",
+                                    "mtime": 1668306119.7395222
+                                },
+                                "wired-machines-in-elf": {
+                                    "name": "“Weird Machines” in ELF: A Spotlight on the Underappreciated Metadata",
+                                    "type": "article",
+                                    "mtime": 1668306119.7415223
+                                },
+                                "yarix-scalable-yara-based": {
+                                    "name": "YarIx: Scalable YARA-based Malware Intelligence",
+                                    "type": "article",
+                                    "mtime": 1668306119.7425222
+                                },
+                                "you-are-what-you-do-hunting-stealthy": {
+                                    "name": "You Are What You Do: Hunting Stealthy Malware via Data Provenance Analysis",
+                                    "type": "article",
+                                    "mtime": 1668306119.743523
+                                }
+                            }
+                        },
+                        "PatchGuard": {
+                            "name": "PatchGuard(Kernel Patch Protect)学习",
+                            "type": "article",
+                            "mtime": 1668306119.7445228
+                        },
+                        "pyd": {
+                            "name": "Pyd逆向学习",
+                            "type": "article",
+                            "mtime": 1668306119.7445228
+                        },
+                        "remote-thread-injection": {
+                            "name": "远程线程注入",
+                            "type": "article",
+                            "mtime": 1668306119.7455223
+                        },
+                        "rev_exps": {
+                            "name": "",
+                            "type": "directory"
+                        },
+                        "SeDebugPrivilege": {
+                            "name": "SeDebugPrivilege提权",
+                            "type": "article",
+                            "mtime": 1668306119.7465222
+                        },
+                        "self-remap": {
+                            "name": "Self-Remapping Code学习",
+                            "type": "article",
+                            "mtime": 1668306119.7475235
+                        },
+                        "Shim-injection": {
+                            "name": "shim-based DLL injection",
+                            "type": "article",
+                            "mtime": 1668306119.7485223
+                        },
+                        "soot": {
+                            "name": "-",
+                            "type": "article",
+                            "mtime": 1668306119.7495222
+                        },
+                        "time-inrelavant-debug": {
+                            "name": "-",
+                            "type": "article",
+                            "mtime": 1668306119.7505224
+                        },
+                        "vba_stomping": {
+                            "name": "VBA STOMPING免杀",
+                            "type": "article",
+                            "mtime": 1668306119.7515223
+                        },
+                        "win-segment-heap": {
+                            "name": "Windows Segment Heap学习",
+                            "type": "article",
+                            "mtime": 1668306119.7525225
+                        },
+                        "win_driver": {
+                            "name": "Windows驱动开发",
+                            "type": "article",
+                            "mtime": 1668306119.7535222
+                        },
+                        "yara": {
+                            "name": "yara学习笔记",
+                            "type": "article",
+                            "mtime": 1668306119.7545223
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "friends": {
+        "information_security": {
+            "name": "信息安全",
+            "type": "directory",
+            "sub": {
+                "all": {
+                    "name": "全能型选手",
+                    "type": "leaf",
+                    "link_list": [
+                        {
+                            "name": "h3ran",
+                            "description": "dalao",
+                            "link": "https://h3a.moe"
+                        }
+                    ]
+                }
+            }
+        }
+    }
+}

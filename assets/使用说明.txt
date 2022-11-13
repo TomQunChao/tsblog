@@ -1,0 +1,12 @@
+关于AXUI
+AXUI是面向设计的国内自主前端框架，坚持做到：能用css实现的不用js，需要使用js则尽量少用，需要大量使用js则尽量可复用。
+ 
+AXUI资源
+AXUI官网：https://www.axui.cn/
+AXUI实例：https://www.axui.cn/ax-demo.php
+AXUI仓库（Github）：https://github.com/axui/axui
+AXUI仓库（Gitee）：https://gitee.com/axui/axui
+
+AXUI联系
+QQ技术群：952502085
+客服QQ：3217728223
