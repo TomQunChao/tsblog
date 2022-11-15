@@ -154,7 +154,7 @@ class Generator:
         self.blog_list = sorted(self.blog_list, key=lambda x: -x['mtime'])
         html = f"{self.nul_tag}"
         for b in self.blog_list:
-            html += f'{self.li_tag}<a href="{b["link"]}">{b["title"]}\t--{self._str2time(b["mtime"])}</a>{self.li_tag_t}'
+            html += f'{self.li_tag}<a href="{b["link"]}"><b>{b["title"]}</b>\t--<i>{self._str2time(b["mtime"])}</i></a>{self.li_tag_t}'
         html += f"{self.nul_tag_t}"
         open(os.path.join(self.troot, "index.html"), "w",
              encoding="utf-8").write(self._render_html(html))
