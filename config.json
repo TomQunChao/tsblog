@@ -10,6 +10,8 @@
     "about": "This is TongShuai's blog",
     "about_photo": "",
     "ul_tag": "<ul class=\"ax-menu ax-full\" axMenu>",
+    "nul_tag": "<ul>",
+    "nul_tag_t": "</ul>",
     "ul_tag_t": "</ul>",
     "li_tag": "<li>",
     "li_tag_t": "</li>",

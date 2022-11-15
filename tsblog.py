@@ -30,8 +30,11 @@ class Generator:
         self.li_tag = c['li_tag']
         self.ul_tag_t = c['ul_tag_t']
         self.li_tag_t = c['li_tag_t']
+        self.nul_tag=c['nul_tag']
+        self.nul_tag_t=c['nul_tag_t']
         self.force_update = c['force_update']
         self.theme = c['theme']
+        
 
     def _str2time(self, t):
         return time.strftime("%Y-%m-%d", time.localtime(t))
@@ -149,10 +152,10 @@ class Generator:
 
     def _render_index(self):
         self.blog_list = sorted(self.blog_list, key=lambda x: -x['mtime'])
-        html = f"{self.ul_tag}"
+        html = f"{self.nul_tag}"
         for b in self.blog_list:
             html += f'{self.li_tag}<a href="{b["link"]}">{b["title"]}\t--{self._str2time(b["mtime"])}</a>{self.li_tag_t}'
-        html += f"{self.ul_tag_t}"
+        html += f"{self.nul_tag_t}"
         open(os.path.join(self.troot, "index.html"), "w",
              encoding="utf-8").write(self._render_html(html))
 
