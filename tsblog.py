@@ -173,7 +173,7 @@ class Generator:
                 disp_name=v['name']
                 if disp_name=='':
                     disp_name=' &lt unknown category &gt'
-                html+=f'{self.li_tag}<a href=""><span class="ax-name">{disp_name}</span></a>'
+                html+=f'{self.li_tag}<a href="#"><span class="ax-name">{disp_name}</span></a>'
                 # if v['name'] == '':
                 #     html += f'{self.li_tag}<a href="#"><span class="ax-name"> &lt unknown category &gt</span></a>'
                 # else:
