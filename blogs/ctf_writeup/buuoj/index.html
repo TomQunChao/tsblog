@@ -16355,9 +16355,49 @@ DEST[MAXVL-1:256] ← 0;
     <span class="nb">print</span><span class="p">(</span><span class="n">aes</span><span class="o">.</span><span class="n">decrypt</span><span class="p">(</span><span class="nb">bytes</span><span class="p">(</span><span class="n">v</span><span class="p">)))</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">hashlib</span><span class="o">.</span><span class="n">md5</span><span class="p">(</span><span class="sa">b</span><span class="s1">&#39;th1s_gam3_1s_s0_c00l_and_d&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">())</span>
 </pre></div>
+<h2 id="%5Brev%5D%5BUTCTF2020%5Dllvm">[rev][UTCTF2020]llvm<a class="anchor-link" href="#%5Brev%5D%5BUTCTF2020%5Dllvm">&#182;</a></h2><p>按照语义理解一下就行</p>
+<p>sext--signed extend
+首先每一个c[i]+=5
+然后c[i]^=c[i+1]</p>
 
 </div>
 </div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">c</span><span class="o">=</span><span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="sa">b</span><span class="s1">&#39;</span><span class="se">\x03\x12\x1A\x17\x0A\xEC\xF2\x14\x0E\x05\x03\x1D\x19\x0E\x02\x0A\x1F\x07\x0C\x01\x17\x06\x0C\x0A\x19\x13\x0A\x16\x1C\x18\x08\x07\x1A\x03\x1D\x1C\x11\x0B\xF3\x87\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x05</span><span class="s1">&#39;</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">c</span><span class="p">)</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+    <span class="n">c</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">^=</span><span class="n">c</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span>
+<span class="nb">bytes</span><span class="p">([(</span><span class="n">i</span><span class="o">-</span><span class="mi">5</span><span class="o">+</span><span class="mh">0x100</span><span class="p">)</span><span class="o">&amp;</span><span class="mh">0xff</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">c</span><span class="p">])</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[1]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>b&#39;utflag{machine_agnostic_ir_is_wonderful}\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00&#39;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
 </div>
     </div>
   </div>

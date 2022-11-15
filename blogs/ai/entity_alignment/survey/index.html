@@ -13108,49 +13108,8 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="%E6%97%B6%E9%97%B4%E6%97%A0%E5%85%B3%E8%B0%83%E8%AF%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0">&#26102;&#38388;&#26080;&#20851;&#35843;&#35797;&#23398;&#20064;&#31508;&#35760;<a class="anchor-link" href="#%E6%97%B6%E9%97%B4%E6%97%A0%E5%85%B3%E8%B0%83%E8%AF%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0">&#182;</a></h1><p>最近和Yenkoc聊天时听说了时间无关调试这个概念，赶紧找来文章学习一下</p>
-<h2 id="%E6%A6%82%E8%BF%B0">&#27010;&#36848;<a class="anchor-link" href="#%E6%A6%82%E8%BF%B0">&#182;</a></h2><p>目前各种保护技术愈演愈烈，像加壳、VM等。时间无关调试即记录调试过程中的寄存器和内存变化，使用记录的trace离线调试分析。</p>
-<p>相关工具有<a href="https://github.com/geohot/qira">qira</a>，微软的TTD(Time Travel Debugging)，mozilla的<a href="https://github.com/rr-debugger/rr">record-replay debugging</a></p>
-<h2 id="%E5%90%84%E7%A7%8D%E5%8A%9F%E8%83%BD%E6%8F%8F%E8%BF%B0">&#21508;&#31181;&#21151;&#33021;&#25551;&#36848;<a class="anchor-link" href="#%E5%90%84%E7%A7%8D%E5%8A%9F%E8%83%BD%E6%8F%8F%E8%BF%B0">&#182;</a></h2><p>以下为和传统调试器相同的功能</p>
-<ul>
-<li>指令流视图</li>
-<li>函数调用栈</li>
-</ul>
-<p>以下功能和传统调试器不同</p>
-<ul>
-<li><p>内存视图：内存中某个数值，定义为写入它的指令地址</p>
-</li>
-<li><p>交叉引用视图：不再是某一时刻的交叉引用，而是全局交叉引用</p>
-<ul>
-<li><p><code>&lt;-</code> 定义链，写入内存的地方</p>
-</li>
-<li><p><code>-&gt;</code> 使用链，读取内存的地方</p>
-</li>
-</ul>
-</li>
-<li><p>字符串参考：全局字符串参考，让字符串加密无可遁形</p>
-</li>
-<li><p>污点跟踪</p>
-<ul>
-<li><p>正向污点跟踪：分析某个寄存器或内存点对于后续指令或寄存器的影响</p>
-</li>
-<li><p>反向污点跟踪：分析某个寄存器或内存点的来源</p>
-</li>
-</ul>
-</li>
-<li><p>控制流图</p>
-<ul>
-<li><p>使用了自定义的结构化算法</p>
-</li>
-<li><p>有布局配置导航图</p>
-</li>
-<li><img src="https://bbs.pediy.com/upload/attach/202205/240967_4XJQD7YH8AKAVYX.png" title="" alt="" width="555">
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="%E5%8F%82%E8%80%83">&#21442;&#32771;<a class="anchor-link" href="#%E5%8F%82%E8%80%83">&#182;</a></h2><p>[1] <a href="https://bbs.pediy.com/thread-273055.htm">使用时间无关调试高效调试代码--看雪</a></p>
-
+<h1 id="%E5%AE%9E%E4%BD%93%E5%AF%B9%E9%BD%90%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0">&#23454;&#20307;&#23545;&#40784;&#25991;&#29486;&#38405;&#35835;&#31508;&#35760;<a class="anchor-link" href="#%E5%AE%9E%E4%BD%93%E5%AF%B9%E9%BD%90%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0">&#182;</a></h1><p>阅读实体对齐相关文献的笔记</p>
+<h2 id="RAGA:-Relation-aware-Graph-Attention-Networks-for-Global-Entity-Alignment">RAGA: Relation-aware Graph Attention Networks for Global Entity Alignment<a class="anchor-link" href="#RAGA:-Relation-aware-Graph-Attention-Networks-for-Global-Entity-Alignment">&#182;</a></h2>
 </div>
 </div>
 </div>
