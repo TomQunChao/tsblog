@@ -129,6 +129,7 @@
                         "survey": {
                             "name": "实体对齐文献阅读笔记",
                             "type": "article",
+                            "mtime": 1668434954.8239324,
                             "sub": {
                                 "Entity_Alignment_Papers": {
                                     "name": "",
@@ -218,8 +219,7 @@
                                         }
                                     }
                                 }
-                            },
-                            "mtime": 1668434954.8239324
+                            }
                         }
                     }
                 }
