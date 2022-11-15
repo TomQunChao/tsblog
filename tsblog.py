@@ -168,12 +168,16 @@ class Generator:
         html = f'{self.ul_tag}'
         for k, v in category_list.items():
             if v['type'] == 'article':
-                html += f'{self.li_tag}<a href="{"/".join(paths+[k])}"><p class="ax-name">{v["name"]}\t--{self._str2time(v["mtime"])}</p></a>{self.li_tag_t}'
+                html += f'{self.li_tag}<a href="{"/".join(paths+[k])}"><p><b>{v["name"]}</b>\t--<i>{self._str2time(v["mtime"])}</i></p></a>{self.li_tag_t}'
             elif v['type'] == 'directory':
-                if v['name'] == '':
-                    html += f'{self.li_tag}<a href="#"><span class="ax-name"> &lt unknown category &gt</span></a>'
-                else:
-                    html += f'{self.li_tag}<a href="#"><span class="ax-name">{v["name"]}</span></a>'
+                disp_name=v['name']
+                if disp_name=='':
+                    disp_name=' &lt unknown category &gt'
+                html+=f'{self.li_tag}<a href=""><span class="ax-name">{disp_name}</span></a>'
+                # if v['name'] == '':
+                #     html += f'{self.li_tag}<a href="#"><span class="ax-name"> &lt unknown category &gt</span></a>'
+                # else:
+                #     html += f'{self.li_tag}<a href="#"><span class="ax-name">{v["name"]}</span></a>'
                 if 'sub' in v.keys():
                     html += f'{self._render_category_list(paths+[k],v["sub"])}'
                 html += f"{self.li_tag_t}"
