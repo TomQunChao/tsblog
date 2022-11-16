@@ -43,7 +43,8 @@
         ],
         [
             "ai",
-            "nlp"
+            "nlp",
+            "word2vec"
         ]
     ],
     "category_list": {
@@ -132,6 +133,24 @@
                             "name": "实体对齐文献阅读笔记",
                             "type": "article",
                             "mtime": 1668517624.4274454
+                        }
+                    }
+                },
+                "nlp": {
+                    "name": "",
+                    "type": "directory",
+                    "sub": {
+                        "transformer": {
+                            "name": "Attention is All you need",
+                            "type": "article",
+                            "sub": {
+                                ".ipynb_checkpoints": {
+                                    "name": "Attention is All you need",
+                                    "type": "article",
+                                    "mtime": 1668570278.6328344
+                                }
+                            },
+                            "mtime": 1668570440.1279244
                         }
                     }
                 }
