@@ -13108,9 +13108,128 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Attention-is-All-you-need">Attention is All you need<a class="anchor-link" href="#Attention-is-All-you-need">&#182;</a></h1><p>编码器和解码器各6层，共12层</p>
-<h2 id="Attention%E6%9C%BA%E5%88%B6">Attention&#26426;&#21046;<a class="anchor-link" href="#Attention%E6%9C%BA%E5%88%B6">&#182;</a></h2><p>$Z=softmax(\frac{QK^T}{\sqrt{d_k}})V$</p>
-<h2 id="self-attention%E6%9C%BA%E5%88%B6">self-attention&#26426;&#21046;<a class="anchor-link" href="#self-attention%E6%9C%BA%E5%88%B6">&#182;</a></h2><h2 id="%E5%8F%82%E8%80%83">&#21442;&#32771;<a class="anchor-link" href="#%E5%8F%82%E8%80%83">&#182;</a></h2><p><a href="https://www.bilibili.com/video/BV1nL4y1j7hA/">https://www.bilibili.com/video/BV1nL4y1j7hA/</a></p>
+<h1 id="Attention-is-All-I-need:-Transformer%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0">Attention is All I need: Transformer&#23398;&#20064;&#31508;&#35760;<a class="anchor-link" href="#Attention-is-All-I-need:-Transformer%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0">&#182;</a></h1><p>Attention is All you need 论文阅读笔记，该模型在翻译任务上表现良好。另外也是理解Attention的一个契机</p>
+<h2 id="%E6%80%BB%E4%BD%93%E6%9E%B6%E6%9E%84">&#24635;&#20307;&#26550;&#26500;<a class="anchor-link" href="#%E6%80%BB%E4%BD%93%E6%9E%B6%E6%9E%84">&#182;</a></h2><p>编码器和解码器各6层，共12层</p>
+<p><img src="img/20221116145320.png" alt="" /></p>
+<p>在每个Encoder结构中，首先经过Self-Attention</p>
+<p>之后经过Feed Forward Neural Network</p>
+<p>$FFN(Z)=max(0,ZW_1+b_1)W_2+b_2$</p>
+<p>Decoder和Encoder类似，但是Output-&gt;SelfAttention-&gt;Encoder-Decoder Attention</p>
+<ul>
+<li>SelfAttention:当前翻译和已经翻译的前文之间的关系</li>
+<li>Encoder-Decoder Attention: 当前翻译和编码器输出(编码的特征向量)之间的关系</li>
+</ul>
+<p>初级Encoder输入编码使用Word2vec的向量，其它层输入是上一层的输出</p>
+<h3 id="RNN%E7%9A%84%E7%BC%BA%E7%82%B9">RNN&#30340;&#32570;&#28857;<a class="anchor-link" href="#RNN%E7%9A%84%E7%BC%BA%E7%82%B9">&#182;</a></h3><ul>
+<li>无法并行训练，需要有之前的结果才能有之后的结果</li>
+<li>无法捕捉超长序列信息，虽然LSTM可以捕捉非常长序列的信息</li>
+</ul>
+<h2 id="Attention%E6%9C%BA%E5%88%B6">Attention&#26426;&#21046;<a class="anchor-link" href="#Attention%E6%9C%BA%E5%88%B6">&#182;</a></h2><p>来源于人类的注意力机制，即当面对大量信号时自动注意重点，然后才关注其它地方</p>
+<p>在神经网络中，表现为给某个向量乘一个权值，凸显重要性</p>
+<h2 id="Self-Attention%E6%9C%BA%E5%88%B6">Self-Attention&#26426;&#21046;<a class="anchor-link" href="#Self-Attention%E6%9C%BA%E5%88%B6">&#182;</a></h2><p>即句子本身中的各个部分之间的注意力</p>
+<p>$Z=softmax(\frac{QK^T}{\sqrt{d_k}})V$</p>
+<p>输入是经过词嵌入的词向量$A=[a_1,a_2,...,a_n],a_i\in\mathbb R^m$</p>
+<p>Attention机制中有三个可以训练的矩阵$W^Q,W^K,W^V$</p>
+<p>$Q=AW^Q=[q_1,q_2,...,q_{n}],,K=AW^K=[k_1,k_2,...,k_{n}],V=AW^V=[v_1,v_2,...,v_n],W^Q,W^K,W^V\in\mathbb R^{m\times d_k}$</p>
+<p>设$C=QK^T$，则$c_{ij}=q_ik_j^T$,以$c_1=[q_1k_1^T,q_1k_2^T,q_1k_3^T,...,q_1k_{n}^T]$为例，这里计算了查询$q_1$和各键值$k_i,i=1...n$的相对距离，经过softmax之后就变成了距离总数为1，各个向量到第一个向量的距离比重。最后除$\sqrt{d_k}$是因为当$c_ij$较大时softmax梯度较小，这样可以加速训练。经过这一步，得到的是一个$n\times n$的矩阵$G=[g_1,g_2,...,g_n]$</p>
+<p>最后$z_{ij}=g_iv_j,$以$z_1=[g_1v_{11},g_1v_{21},g_1v_{31},...,g_1v_{n1}]$，以归一化的查询$q_1$到键$k_j$的距离作为权重，乘对应的向量$v_j$的第一个元素，即得到了最终第一个元素的表示，这就是其它向量的第一个元素对于$a_1$的第一个元素的注意力</p>
+<p>例如商品购物(查询：作业本)时，每个物品都对应若干键(颜色、页数、厚度、种类，物品类目)，每个物品本身也是一个值(条目)</p>
+<p>利用查询和各个键进行比对，就可以知道每一个键和查询的距离，将相对距离和条目相乘，就得到条目的重要性。条目本身是有一些重要性的，例如淘宝会根据条目的评论之类的</p>
+<p>换言之，键用于表示物品本身的特色，值用于表示物品本身的价值</p>
+<p>在Transformer中，</p>
+<ul>
+<li>$W^K$就是键矩阵，用于提取那些可能和注意力有关的特征</li>
+<li>$W^Q$就是查询矩阵，用于将某个词转化为查询向量，例如买东西需要将实物转化为文字</li>
+<li>$W^V$就是价值矩阵，可以衡量某个词本身的价值</li>
+</ul>
+<p>示例：<img src="img/20221116145149.png" alt="" /></p>
+<h3 id="%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0">&#20195;&#30721;&#23454;&#29616;<a class="anchor-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0">&#182;</a></h3><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">ScaledDotProductAttention</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39; Scaled Dot-Product Attention &#39;&#39;&#39;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">temperature</span><span class="p">,</span> <span class="n">attn_dropout</span><span class="o">=</span><span class="mf">0.1</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">temperature</span> <span class="o">=</span> <span class="n">temperature</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dropout</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Dropout</span><span class="p">(</span><span class="n">attn_dropout</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">q</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">mask</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+
+        <span class="n">attn</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">q</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">temperature</span><span class="p">,</span> <span class="n">k</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+
+        <span class="k">if</span> <span class="n">mask</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">attn</span> <span class="o">=</span> <span class="n">attn</span><span class="o">.</span><span class="n">masked_fill</span><span class="p">(</span><span class="n">mask</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1e9</span><span class="p">)</span>
+
+        <span class="n">attn</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dropout</span><span class="p">(</span><span class="n">F</span><span class="o">.</span><span class="n">softmax</span><span class="p">(</span><span class="n">attn</span><span class="p">,</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">))</span>
+        <span class="n">output</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">attn</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">output</span><span class="p">,</span> <span class="n">attn</span>
+<span class="k">class</span> <span class="nc">MultiHeadAttention</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39; Multi-Head Attention module &#39;&#39;&#39;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n_head</span><span class="p">,</span> <span class="n">d_model</span><span class="p">,</span> <span class="n">d_k</span><span class="p">,</span> <span class="n">d_v</span><span class="p">,</span> <span class="n">dropout</span><span class="o">=</span><span class="mf">0.1</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">n_head</span> <span class="o">=</span> <span class="n">n_head</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">d_k</span> <span class="o">=</span> <span class="n">d_k</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">d_v</span> <span class="o">=</span> <span class="n">d_v</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">w_qs</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">d_model</span><span class="p">,</span> <span class="n">n_head</span> <span class="o">*</span> <span class="n">d_k</span><span class="p">,</span> <span class="n">bias</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">w_ks</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">d_model</span><span class="p">,</span> <span class="n">n_head</span> <span class="o">*</span> <span class="n">d_k</span><span class="p">,</span> <span class="n">bias</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">w_vs</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">d_model</span><span class="p">,</span> <span class="n">n_head</span> <span class="o">*</span> <span class="n">d_v</span><span class="p">,</span> <span class="n">bias</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fc</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">n_head</span> <span class="o">*</span> <span class="n">d_v</span><span class="p">,</span> <span class="n">d_model</span><span class="p">,</span> <span class="n">bias</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">attention</span> <span class="o">=</span> <span class="n">ScaledDotProductAttention</span><span class="p">(</span><span class="n">temperature</span><span class="o">=</span><span class="n">d_k</span> <span class="o">**</span> <span class="mf">0.5</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">dropout</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Dropout</span><span class="p">(</span><span class="n">dropout</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">layer_norm</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">LayerNorm</span><span class="p">(</span><span class="n">d_model</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">1e-6</span><span class="p">)</span>
+
+
+    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">q</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">mask</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+
+        <span class="n">d_k</span><span class="p">,</span> <span class="n">d_v</span><span class="p">,</span> <span class="n">n_head</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">d_k</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">d_v</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_head</span>
+        <span class="n">sz_b</span><span class="p">,</span> <span class="n">len_q</span><span class="p">,</span> <span class="n">len_k</span><span class="p">,</span> <span class="n">len_v</span> <span class="o">=</span> <span class="n">q</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">q</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">k</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">v</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+        <span class="n">residual</span> <span class="o">=</span> <span class="n">q</span>
+
+        <span class="c1"># Pass through the pre-attention projection: b x lq x (n*dv)</span>
+        <span class="c1"># Separate different heads: b x lq x n x dv</span>
+        <span class="n">q</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">w_qs</span><span class="p">(</span><span class="n">q</span><span class="p">)</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="n">sz_b</span><span class="p">,</span> <span class="n">len_q</span><span class="p">,</span> <span class="n">n_head</span><span class="p">,</span> <span class="n">d_k</span><span class="p">)</span>
+        <span class="n">k</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">w_ks</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="n">sz_b</span><span class="p">,</span> <span class="n">len_k</span><span class="p">,</span> <span class="n">n_head</span><span class="p">,</span> <span class="n">d_k</span><span class="p">)</span>
+        <span class="n">v</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">w_vs</span><span class="p">(</span><span class="n">v</span><span class="p">)</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="n">sz_b</span><span class="p">,</span> <span class="n">len_v</span><span class="p">,</span> <span class="n">n_head</span><span class="p">,</span> <span class="n">d_v</span><span class="p">)</span>
+
+        <span class="c1"># Transpose for attention dot product: b x n x lq x dv</span>
+        <span class="n">q</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="o">=</span> <span class="n">q</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">k</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">v</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">mask</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">mask</span> <span class="o">=</span> <span class="n">mask</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>   <span class="c1"># For head axis broadcasting.</span>
+
+        <span class="n">q</span><span class="p">,</span> <span class="n">attn</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">attention</span><span class="p">(</span><span class="n">q</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">mask</span><span class="o">=</span><span class="n">mask</span><span class="p">)</span>
+
+        <span class="c1"># Transpose to move the head dimension back: b x lq x n x dv</span>
+        <span class="c1"># Combine the last two dimensions to concatenate all the heads together: b x lq x (n*dv)</span>
+        <span class="n">q</span> <span class="o">=</span> <span class="n">q</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">contiguous</span><span class="p">()</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="n">sz_b</span><span class="p">,</span> <span class="n">len_q</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">q</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dropout</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fc</span><span class="p">(</span><span class="n">q</span><span class="p">))</span>
+        <span class="n">q</span> <span class="o">+=</span> <span class="n">residual</span>
+
+        <span class="n">q</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">layer_norm</span><span class="p">(</span><span class="n">q</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">q</span><span class="p">,</span> <span class="n">attn</span>
+</pre></div>
+<p>权重矩阵$W^*$是利用全连接层表示的，表示注意力是可以学习的。在训练足够多的时间之后，翻译时就会让不同单词之间的注意力到一个合适的值</p>
+<h2 id="%E5%A4%9A%E5%A4%B4%E6%B3%A8%E6%84%8F%E5%8A%9B(Multi-head-Attention)">&#22810;&#22836;&#27880;&#24847;&#21147;(Multi head Attention)<a class="anchor-link" href="#%E5%A4%9A%E5%A4%B4%E6%B3%A8%E6%84%8F%E5%8A%9B(Multi-head-Attention)">&#182;</a></h2><p>以8头注意力为例</p>
+<ol>
+<li>将$X$分别输入到8个SelfAttention中，得到$Z_1-Z_8$</li>
+<li>将$Z_1-Z_8$拼接成一个大矩阵</li>
+<li>经过一个全连接层输出得到Z</li>
+</ol>
+<p>相当于集成学习，不同注意力层矩阵学到的注意力可能不同，集成一下减少误差</p>
+<h2 id="Encoder-Decoder-Attention-&amp;-Decoder-Attention">Encoder-Decoder Attention &amp; Decoder Attention<a class="anchor-link" href="#Encoder-Decoder-Attention-&amp;-Decoder-Attention">&#182;</a></h2><p>Encoder-Decoder Attention中，Q来自于解码器的上一个输出，KV来自于编码器的输出</p>
+<p>Decoder Attention中，当解码第k个向量时，只能看到k-1之前的结果，需要将之后的mask掉</p>
+<h2 id="%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0">&#25439;&#22833;&#20989;&#25968;<a class="anchor-link" href="#%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0">&#182;</a></h2><p>解码后，经过一层全连接层和softmax，得到每个单词的概率输出向量，之后就可以通过CTC等损失函数训练模型了</p>
+<h2 id="%E4%BD%8D%E7%BD%AE%E7%BC%96%E7%A0%81">&#20301;&#32622;&#32534;&#30721;<a class="anchor-link" href="#%E4%BD%8D%E7%BD%AE%E7%BC%96%E7%A0%81">&#182;</a></h2><p>$PE(pos,2i)=sin(\frac{pos}{1000\frac{2i}{d_{model}}})$</p>
+<p>$PE(pos,2i+1)=cos(\frac{pos}{1000\frac{2i}{d_{model}}})$</p>
+<p>$i$是单词维度，<a href="https://github.com/tensorflow/tensor2tensor/blob/23bd23b9830059fbc349381b70d9429b5c40a139/tensor2tensor/layers/common_attention.py#L387">源码</a></p>
+<p>这样设计是因为$sin(\alpha+\beta)和cos(\alpha+\beta)$都可以分解，也就是含有单词相对位置的信息，为捕捉相对位置提供方便</p>
+<h2 id="%E5%8F%82%E8%80%83">&#21442;&#32771;<a class="anchor-link" href="#%E5%8F%82%E8%80%83">&#182;</a></h2><p><a href="https://www.bilibili.com/video/BV1nL4y1j7hA/">https://www.bilibili.com/video/BV1nL4y1j7hA/</a></p>
 <p><a href="https://towardsdatascience.com/transformers-141e32e69591">https://towardsdatascience.com/transformers-141e32e69591</a></p>
 <p><a href="https://github.com/jadore801120/attention-is-all-you-need-pytorch">https://github.com/jadore801120/attention-is-all-you-need-pytorch</a></p>
 <p><a href="https://zhuanlan.zhihu.com/p/48508221">https://zhuanlan.zhihu.com/p/48508221</a></p>
@@ -13121,6 +13240,9 @@ div#notebook {
 <p><a href="https://www.youtube.com/watch?v=0QgGIzElVNU">https://www.youtube.com/watch?v=0QgGIzElVNU</a></p>
 <p><a href="https://people.cs.umass.edu/~miyyer/cs685/">https://people.cs.umass.edu/~miyyer/cs685/</a></p>
 <p><a href="http://jalammar.github.io/illustrated-transformer/">http://jalammar.github.io/illustrated-transformer/</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/105722023">https://zhuanlan.zhihu.com/p/105722023</a></p>
+<p><a href="https://luweikxy.gitbook.io/machine-learning-notes/self-attention-and-transformer">https://luweikxy.gitbook.io/machine-learning-notes/self-attention-and-transformer</a></p>
+<p><a href="https://colab.research.google.com/drive/1hXIQ77A4TYS4y3UthWF-Ci7V7vVUoxmQ?usp=sharing#scrollTo=TG-dQt3NOlub">https://colab.research.google.com/drive/1hXIQ77A4TYS4y3UthWF-Ci7V7vVUoxmQ?usp=sharing#scrollTo=TG-dQt3NOlub</a></p>
 
 </div>
 </div>
