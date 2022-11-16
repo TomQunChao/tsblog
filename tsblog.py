@@ -79,7 +79,7 @@ class Generator:
             cp = os.path.join(cpath, p)
             # print(cpath,p)
             tp = os.path.join(self.troot, cpath)
-            if os.path.abspath(cp) in self.disallow_dir:
+            if os.path.abspath(cp) in self.disallow_dir or p.startswith('.'):
                 continue
             # print('continued...')
             if os.path.isfile(cp):
