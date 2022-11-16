@@ -126,7 +126,7 @@
                     "mtime": 1668263596.3898692
                 },
                 "entity_alignment": {
-                    "name": "",
+                    "name": "实体对齐",
                     "type": "directory",
                     "sub": {
                         "survey": {
@@ -137,7 +137,7 @@
                     }
                 },
                 "nlp": {
-                    "name": "",
+                    "name": "自然语言处理",
                     "type": "directory",
                     "sub": {
                         "transformer": {
