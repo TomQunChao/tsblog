@@ -81,6 +81,25 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 .highlight .vm { color: #19177C } /* Name.Variable.Magic */
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */
   </style>
+<style type="text/css">
+  
+
+<script>
+    MathJax.Hub.Config({
+        "HTML-CSS": {
+            /*preferredFont: "TeX",*/
+            /*availableFonts: ["TeX", "STIX"],*/
+            styles: {
+                scale: 100,
+                ".MathJax_Display": {
+                    "font-size": "100%",
+                }
+            }
+        }
+    });
+</script>
+    
+  </style>
 
 
 
@@ -13090,6 +13109,12 @@ div#notebook {
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="%E5%AE%9E%E4%BD%93%E5%AF%B9%E9%BD%90%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0">&#23454;&#20307;&#23545;&#40784;&#25991;&#29486;&#38405;&#35835;&#31508;&#35760;<a class="anchor-link" href="#%E5%AE%9E%E4%BD%93%E5%AF%B9%E9%BD%90%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0">&#182;</a></h1><p>阅读实体对齐相关文献的笔记</p>
+<h2 id="Relation-Aware-Entity-Alignment-for-Heterogeneous-Knowledge-Graphs">Relation-Aware Entity Alignment for Heterogeneous Knowledge Graphs<a class="anchor-link" href="#Relation-Aware-Entity-Alignment-for-Heterogeneous-Knowledge-Graphs">&#182;</a></h2><p>Google翻译有20%的错误，会导致初始嵌入问题</p>
+<p>首先构造对偶关系图</p>
+<blockquote>
+<p>给定原始图 Ge，其对偶关系图 Gr = (Vr, Er) 构造如下： 1) 对于 Ge 中的每一种关系 r，在 Vr 中都会有一个顶点 vr，因此 Vr = R1 ∪R2； 2) 如果两个关系 ri 和 rj 在 Ge 中共享相同的头或尾实体，那么我们在 Gr 中创建一条边 ur ij 连接 vr i 和 vr j</p>
+</blockquote>
+<p>但是和普通对偶关系图不同，本文中在对偶关系图上放入相似度：</p>
 <h2 id="RAGA:-Relation-aware-Graph-Attention-Networks-for-Global-Entity-Alignment">RAGA: Relation-aware Graph Attention Networks for Global Entity Alignment<a class="anchor-link" href="#RAGA:-Relation-aware-Graph-Attention-Networks-for-Global-Entity-Alignment">&#182;</a></h2><p>RDGCN</p>
 <h3 id="%E7%8E%AF%E5%A2%83">&#29615;&#22659;<a class="anchor-link" href="#%E7%8E%AF%E5%A2%83">&#182;</a></h3><p>创建环境<code>conda create raga</code></p>
 <p>激活环境<code>conda activate raga</code></p>
@@ -13098,9 +13123,11 @@ div#notebook {
 <p>首先安装<a href="https://anaconda.org/nvidia/cuda-nvprof">cuda-nvprof</a>，这个包提供<code>cuda_profiler_api.h</code>头文件，注意版本和<code>conda list</code>列出的cuda-toolkit版本相同</p>
 <p><code>conda install -c &quot;nvidia/label/cuda-11.6.2&quot; cuda-nvprof</code></p>
 <p>clone代码并编译</p>
-<div class="highlight"><pre><span></span>git clone https://github.com/NVIDIA/apex.git <span class="o">&amp;&amp;</span> <span class="nb">cd</span> apex <span class="o">&amp;&amp;</span> pip install -v --disable-pip-version-check --no-cache-dir --global-option<span class="o">=</span><span class="s2">&quot;--cpp_ext&quot;</span> --global-option<span class="o">=</span><span class="s2">&quot;--cuda_ext&quot;</span> ./
+<div class="highlight"><pre><span></span>pip install packaging <span class="o">&amp;&amp;</span> git clone https://github.com/NVIDIA/apex.git <span class="o">&amp;&amp;</span> <span class="nb">cd</span> apex <span class="o">&amp;&amp;</span> pip install -v --disable-pip-version-check --no-cache-dir --global-option<span class="o">=</span><span class="s2">&quot;--cpp_ext&quot;</span> --global-option<span class="o">=</span><span class="s2">&quot;--cuda_ext&quot;</span> ./
 </pre></div>
 <p>安装另外两个包<code>conda install pytorch-sparse -c pyg</code>,<code>pip install torch_geometric</code></p>
+<p>导出环境 <code>conda env export &gt; RAGA_conda.yml</code></p>
+<p>导入 <code>conda env create -f RAGA_conda.yml</code></p>
 <p>参考自：<a href="https://github.com/PaddlePaddle/Paddle/issues/45929">https://github.com/PaddlePaddle/Paddle/issues/45929</a></p>
 
 </div>

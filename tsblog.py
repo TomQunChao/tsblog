@@ -138,10 +138,13 @@ class Generator:
                 html += f'{self.render_friends_list(v["sub"])}'
                 html += f"{self.li_tag_t}"
             elif v['type'] == 'leaf':
+                html+=f'{self.ul_tag}<a>{v["name"]}</a>'
                 for f in v['link_list']:
                     html += f'{self.li_tag}<a href={f["link"]}><p>{f["name"]}\t{f["description"]}</p></a>{self.li_tag_t}'
+                html+=f"{self.ul_tag_t}"
             else:
                 print("unknown friend list type")
+
         html += f"{self.ul_tag_t}"
         return html
 
@@ -173,7 +176,7 @@ class Generator:
                 disp_name=v['name']
                 if disp_name=='':
                     disp_name=' &lt unknown category &gt'
-                html+=f'{self.li_tag}<a href="#"><span class="ax-name">{disp_name}</span></a>'
+                html+=f'{self.li_tag}<a><span class="ax-name">{disp_name}</span></a>'
                 # if v['name'] == '':
                 #     html += f'{self.li_tag}<a href="#"><span class="ax-name"> &lt unknown category &gt</span></a>'
                 # else:

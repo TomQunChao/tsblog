@@ -131,7 +131,7 @@
                         "survey": {
                             "name": "实体对齐文献阅读笔记",
                             "type": "article",
-                            "mtime": 1668484338.993437
+                            "mtime": 1668517624.4274454
                         }
                     }
                 }
@@ -426,7 +426,7 @@
                         "time-inrelavant-debug": {
                             "name": "时间无关调试学习笔记",
                             "type": "article",
-                            "mtime": 1668471378.4497707
+                            "mtime": 1668570205.0574565
                         },
                         "vba_stomping": {
                             "name": "VBA STOMPING免杀",
@@ -470,6 +470,17 @@
                     ]
                 }
             }
+        },
+        "other": {
+            "name": "其它",
+            "type": "leaf",
+            "link_list": [
+                {
+                    "name": "cubercsl",
+                    "description": "all dalao",
+                    "link": "https://cubercsl.site/"
+                }
+            ]
         }
     }
 }
