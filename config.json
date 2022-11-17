@@ -62,6 +62,17 @@
                             "mtime": 1668338655.3750584
                         }
                     }
+                },
+                "env": {
+                    "name": "",
+                    "type": "directory",
+                    "sub": {
+                        "win-re": {
+                            "name": "Windows 恢复分区移动指南",
+                            "type": "article",
+                            "mtime": 1668646827.22147
+                        }
+                    }
                 }
             }
         },
@@ -118,7 +129,7 @@
                 "survey": {
                     "name": "AI综述",
                     "type": "article",
-                    "mtime": 1668431299.768406
+                    "mtime": 1668669951.7767634
                 },
                 "torch": {
                     "name": "PyTorch学习笔记",
@@ -132,7 +143,7 @@
                         "survey": {
                             "name": "实体对齐文献阅读笔记",
                             "type": "article",
-                            "mtime": 1668576040.8302772
+                            "mtime": 1668669848.9635556
                         }
                     }
                 },
@@ -144,6 +155,17 @@
                             "name": "Attention is All I need: Transformer学习笔记",
                             "type": "article",
                             "mtime": 1668583390.8695216
+                        }
+                    }
+                },
+                "env": {
+                    "name": "",
+                    "type": "directory",
+                    "sub": {
+                        "wsl_docker": {
+                            "name": "WSL配置Nvidia深度学习环境笔记",
+                            "type": "article",
+                            "mtime": 1668607934.4675064
                         }
                     }
                 }

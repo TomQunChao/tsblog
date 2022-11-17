@@ -13108,117 +13108,29 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="%E5%AE%9E%E4%BD%93%E5%AF%B9%E9%BD%90%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0">&#23454;&#20307;&#23545;&#40784;&#25991;&#29486;&#38405;&#35835;&#31508;&#35760;<a class="anchor-link" href="#%E5%AE%9E%E4%BD%93%E5%AF%B9%E9%BD%90%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0">&#182;</a></h1><p>阅读实体对齐相关文献的笔记</p>
-<h2 id="GCN-Align">GCN-Align<a class="anchor-link" href="#GCN-Align">&#182;</a></h2><p>对齐的实体通常有相似属性并且具有相似邻居，GCN可以结合属性和邻居信息，利用GCN将实体映射到低维向量</p>
-<p>结构和属性嵌入：$[H_s^{(l+1)};H_a^{(l+1)}]=\sigma(\hat D^{-\frac 1 2}\hat A\hat D^{-\frac 1 2}[H_s^{(l)}W_s^{(l)};H_a^{(l)}W_a^{(l)}])$</p>
-<p>其中$W_*^{\#}$是第$\#$层权重矩阵，$\sigma=ReLU$，</p>
-<p>这里$\hat D^{-\frac 1 2}\hat A\hat D^{-\frac 1 2}$实际上计算了一个矩阵的对称归一化</p>
-<p><a href="https://zhuanlan.zhihu.com/p/412337460">https://zhuanlan.zhihu.com/p/412337460</a></p>
-<p>利用双层GCN进行训练，每一个GCN处理一个KG并生成嵌入</p>
-<p><img src="img/20221105164943.png" alt="" /></p>
-<p>由于KG中关系是有类型的，所以计算$a_{ij}\in A$ 这个A就是上面的A，用于表示图的结构信息</p>
-<p>$fun(r)=\frac{\#her}{\#tr}$</p>
-<p>$ifun(r)=\frac{\#ter}{\#tr}$</p>
-<p>$\#her,ter,tr$分别是带有关系$r$的头实体、尾实体和三元组数量</p>
-<p>代码实现</p>
-<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="n">KG</span><span class="p">):</span>
-    <span class="n">head</span> <span class="o">=</span> <span class="p">{}</span> <span class="c1"># 头实体的数量</span>
-    <span class="n">cnt</span> <span class="o">=</span> <span class="p">{}</span> <span class="c1"># 关系的数量</span>
-    <span class="k">for</span> <span class="n">tri</span> <span class="ow">in</span> <span class="n">KG</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">tri</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">cnt</span><span class="p">:</span>
-            <span class="n">cnt</span><span class="p">[</span><span class="n">tri</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span> <span class="o">=</span> <span class="mi">1</span>
-            <span class="n">head</span><span class="p">[</span><span class="n">tri</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([</span><span class="n">tri</span><span class="p">[</span><span class="mi">0</span><span class="p">]])</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">cnt</span><span class="p">[</span><span class="n">tri</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span> <span class="o">+=</span> <span class="mi">1</span>
-            <span class="n">head</span><span class="p">[</span><span class="n">tri</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tri</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-    <span class="n">r2f</span> <span class="o">=</span> <span class="p">{}</span>
-    <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">cnt</span><span class="p">:</span>
-        <span class="n">r2f</span><span class="p">[</span><span class="n">r</span><span class="p">]</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">head</span><span class="p">[</span><span class="n">r</span><span class="p">])</span> <span class="o">/</span> <span class="n">cnt</span><span class="p">[</span><span class="n">r</span><span class="p">]</span>
-    <span class="k">return</span> <span class="n">r2f</span>
-
-
-<span class="k">def</span> <span class="nf">ifunc</span><span class="p">(</span><span class="n">KG</span><span class="p">):</span>
-    <span class="n">tail</span> <span class="o">=</span> <span class="p">{}</span> <span class="c1"># 尾实体的数量</span>
-    <span class="n">cnt</span> <span class="o">=</span> <span class="p">{}</span> <span class="c1"># 关系的数量</span>
-    <span class="k">for</span> <span class="n">tri</span> <span class="ow">in</span> <span class="n">KG</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">tri</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">cnt</span><span class="p">:</span>
-            <span class="n">cnt</span><span class="p">[</span><span class="n">tri</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span> <span class="o">=</span> <span class="mi">1</span>
-            <span class="n">tail</span><span class="p">[</span><span class="n">tri</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([</span><span class="n">tri</span><span class="p">[</span><span class="mi">2</span><span class="p">]])</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">cnt</span><span class="p">[</span><span class="n">tri</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span> <span class="o">+=</span> <span class="mi">1</span>
-            <span class="n">tail</span><span class="p">[</span><span class="n">tri</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tri</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
-    <span class="n">r2if</span> <span class="o">=</span> <span class="p">{}</span>
-    <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">cnt</span><span class="p">:</span>
-        <span class="n">r2if</span><span class="p">[</span><span class="n">r</span><span class="p">]</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">tail</span><span class="p">[</span><span class="n">r</span><span class="p">])</span> <span class="o">/</span> <span class="n">cnt</span><span class="p">[</span><span class="n">r</span><span class="p">]</span>
-    <span class="k">return</span> <span class="n">r2if</span>
-
-
-<span class="k">def</span> <span class="nf">get_weighted_adj</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="n">KG</span><span class="p">):</span>
-    <span class="n">r2f</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="n">KG</span><span class="p">)</span> <span class="c1"># r-&gt;头实体比例</span>
-    <span class="n">r2if</span> <span class="o">=</span> <span class="n">ifunc</span><span class="p">(</span><span class="n">KG</span><span class="p">)</span> <span class="c1"># r-&gt;尾实体比例</span>
-    <span class="n">M</span> <span class="o">=</span> <span class="p">{}</span>
-    <span class="k">for</span> <span class="n">tri</span> <span class="ow">in</span> <span class="n">KG</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">tri</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">tri</span><span class="p">[</span><span class="mi">2</span><span class="p">]:</span>
-            <span class="k">continue</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">tri</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">tri</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">M</span><span class="p">:</span>
-            <span class="n">M</span><span class="p">[(</span><span class="n">tri</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">tri</span><span class="p">[</span><span class="mi">2</span><span class="p">])]</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">r2if</span><span class="p">[</span><span class="n">tri</span><span class="p">[</span><span class="mi">1</span><span class="p">]],</span> <span class="mf">0.3</span><span class="p">)</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">M</span><span class="p">[(</span><span class="n">tri</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">tri</span><span class="p">[</span><span class="mi">2</span><span class="p">])]</span> <span class="o">+=</span> <span class="nb">max</span><span class="p">(</span><span class="n">r2if</span><span class="p">[</span><span class="n">tri</span><span class="p">[</span><span class="mi">1</span><span class="p">]],</span> <span class="mf">0.3</span><span class="p">)</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">tri</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">tri</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">M</span><span class="p">:</span>
-            <span class="n">M</span><span class="p">[(</span><span class="n">tri</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">tri</span><span class="p">[</span><span class="mi">0</span><span class="p">])]</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">r2f</span><span class="p">[</span><span class="n">tri</span><span class="p">[</span><span class="mi">1</span><span class="p">]],</span> <span class="mf">0.3</span><span class="p">)</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">M</span><span class="p">[(</span><span class="n">tri</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">tri</span><span class="p">[</span><span class="mi">0</span><span class="p">])]</span> <span class="o">+=</span> <span class="nb">max</span><span class="p">(</span><span class="n">r2f</span><span class="p">[</span><span class="n">tri</span><span class="p">[</span><span class="mi">1</span><span class="p">]],</span> <span class="mf">0.3</span><span class="p">)</span>
-    <span class="n">row</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="n">col</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="n">data</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">M</span><span class="p">:</span>
-        <span class="n">row</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">key</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
-        <span class="n">col</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">key</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-        <span class="n">data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">M</span><span class="p">[</span><span class="n">key</span><span class="p">])</span>
-    <span class="k">return</span> <span class="n">sp</span><span class="o">.</span><span class="n">coo_matrix</span><span class="p">((</span><span class="n">data</span><span class="p">,</span> <span class="p">(</span><span class="n">row</span><span class="p">,</span> <span class="n">col</span><span class="p">)),</span> <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="n">e</span><span class="p">))</span>
-
-<span class="c1"># ...</span>
-<span class="c1"># 下面用于获取\hat A</span>
-<span class="n">adj</span> <span class="o">+</span> <span class="n">sp</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="n">adj</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-<span class="c1"># 然后进行一个正规化</span>
-<span class="k">def</span> <span class="nf">normalize_adj</span><span class="p">(</span><span class="n">adj</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Symmetrically normalize adjacency matrix.&quot;&quot;&quot;</span>
-    <span class="n">adj</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">coo_matrix</span><span class="p">(</span><span class="n">adj</span><span class="p">)</span>
-    <span class="n">rowsum</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">adj</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span> <span class="c1"># 每一行求和</span>
-    <span class="n">d_inv_sqrt</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="n">rowsum</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">)</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span> 
-    <span class="n">d_inv_sqrt</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">isinf</span><span class="p">(</span><span class="n">d_inv_sqrt</span><span class="p">)]</span> <span class="o">=</span> <span class="mf">0.</span>
-    <span class="n">d_mat_inv_sqrt</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">diags</span><span class="p">(</span><span class="n">d_inv_sqrt</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">adj</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">d_mat_inv_sqrt</span><span class="p">)</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">d_mat_inv_sqrt</span><span class="p">)</span><span class="o">.</span><span class="n">tocoo</span><span class="p">()</span>
+<h1 id="WSL%E9%85%8D%E7%BD%AENvidia%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%8E%AF%E5%A2%83%E7%AC%94%E8%AE%B0">WSL&#37197;&#32622;Nvidia&#28145;&#24230;&#23398;&#20064;&#29615;&#22659;&#31508;&#35760;<a class="anchor-link" href="#WSL%E9%85%8D%E7%BD%AENvidia%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%8E%AF%E5%A2%83%E7%AC%94%E8%AE%B0">&#182;</a></h1><p>Linux+Windows双系统有些麻烦，直接Windows上的WSL了</p>
+<h2 id="%E5%AE%89%E8%A3%85wsl">&#23433;&#35013;wsl<a class="anchor-link" href="#%E5%AE%89%E8%A3%85wsl">&#182;</a></h2><p>直接在软件商店搜wsl，选一个可以用gcc的(?)，这里选了kali。</p>
+<p>之后要启动wsl，看看版本是不是5.10以上，如果不是，要使用<code>wsl --update</code>进行更新</p>
+<p>如果还不是最新，可以查看<code>wsl -l -v</code>，看看是不是wsl1，如果是，还需要转化成wsl2 <code>wsl --set-version kali-linux 2</code></p>
+<p>发行版代号使用<code>wsl -l -o</code>查看</p>
+<h2 id="%E5%AE%89%E8%A3%85Docker-Desktop">&#23433;&#35013;Docker-Desktop<a class="anchor-link" href="#%E5%AE%89%E8%A3%85Docker-Desktop">&#182;</a></h2><p>直接<a href="https://desktop.docker.com/win/main/amd64/Docker%20Desktop%20Installer.exe">点击</a>下载，之后双击安装，记得勾选使用WSL2</p>
+<h2 id="%E5%AE%89%E8%A3%85nvidia-docker2(nvidia-container-toolkit)">&#23433;&#35013;nvidia-docker2(nvidia-container-toolkit)<a class="anchor-link" href="#%E5%AE%89%E8%A3%85nvidia-docker2(nvidia-container-toolkit)">&#182;</a></h2><p>进入wsl执行</p>
+<div class="highlight"><pre><span></span>$ <span class="nv">distribution</span><span class="o">=</span><span class="k">$(</span>. /etc/os-release<span class="p">;</span><span class="nb">echo</span> <span class="nv">$ID$VERSION_ID</span><span class="k">)</span>
+$ curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey <span class="p">|</span> sudo apt-key add -
+$ curl -s -L https://nvidia.github.io/nvidia-docker/<span class="nv">$distribution</span>/nvidia-docker.list <span class="p">|</span> sudo tee /etc/apt/sources.list.d/nvidia-docker.list
 </pre></div>
-<p>$a_{ij}=\sum\limits_{&lt;e_i,r,e_j&gt;\in G}ifun(r)+\sum\limits_{&lt;e_j,r,e_i&gt;\in G}fun(r)+$</p>
-<p>实体对其度使用如下计算$D(e_i,v_j)=\beta\frac{f(h_s(e_i),h_s(v_j))}{d_s}+(1-\beta)\frac{f(h_a(e_i),h_a(v_j))}{d_a}$,$d_s,d_a$是结构嵌入和属性嵌入的维度，$f$是一范数</p>
-<p>使用随机梯度下降训练，损失函数</p>
-<p>$L_s=\sum\limits_{(e,v)\in S}\sum\limits_{(e',v')\in S'_{(e,v)}}[f(h_s(e),h_s(v))+\gamma_s-f(h_s(e'),h_s(v'))]_+$</p>
-<p>$L_s=\sum\limits_{(e,v)\in S}\sum\limits_{(e',v')\in S'_{(e,v)}}[f(h_a(e),h_a(v))+\gamma_a-f(h_a(e'),h_a(v'))]_+$</p>
-<p>项目地址：<a href="https://github.com/1049451037/GCN-Align">https://github.com/1049451037/GCN-Align</a></p>
-<h3 id="%E7%8E%AF%E5%A2%83">&#29615;&#22659;<a class="anchor-link" href="#%E7%8E%AF%E5%A2%83">&#182;</a></h3><p><code>conda create -n gcn-align python==3.6</code></p>
-<p><code>conda install cudatoolkit==9 cudnn==7.3.1 scipy==1.1.0 networkx==2.2</code></p>
-<p><code>pip install tensorflow-gpu==1.10.1</code></p>
-<h2 id="Relation-Aware-Entity-Alignment-for-Heterogeneous-Knowledge-Graphs">Relation-Aware Entity Alignment for Heterogeneous Knowledge Graphs<a class="anchor-link" href="#Relation-Aware-Entity-Alignment-for-Heterogeneous-Knowledge-Graphs">&#182;</a></h2><p>Google翻译有20%的错误，会导致初始嵌入问题</p>
-<p>首先构造对偶关系图</p>
-<blockquote>
-<p>给定原始图 Ge，其对偶关系图 Gr = (Vr, Er) 构造如下： 1) 对于 Ge 中的每一种关系 r，在 Vr 中都会有一个顶点 vr，因此 Vr = R1 ∪R2； 2) 如果两个关系 ri 和 rj 在 Ge 中共享相同的头或尾实体，那么我们在 Gr 中创建一条边 ur ij 连接 vr i 和 vr j</p>
-</blockquote>
-<p>但是和普通对偶关系图不同，本文中在对偶关系图上放入相似度：</p>
-<h2 id="RAGA:-Relation-aware-Graph-Attention-Networks-for-Global-Entity-Alignment">RAGA: Relation-aware Graph Attention Networks for Global Entity Alignment<a class="anchor-link" href="#RAGA:-Relation-aware-Graph-Attention-Networks-for-Global-Entity-Alignment">&#182;</a></h2><p>RDGCN</p>
-<h3 id="%E7%8E%AF%E5%A2%83">&#29615;&#22659;<a class="anchor-link" href="#%E7%8E%AF%E5%A2%83">&#182;</a></h3><p>创建环境<code>conda create -n raga</code></p>
-<p>激活环境<code>conda activate raga</code></p>
-<p>安装torch <code>conda install pytorch torchvision torchaudio pytorch-cuda=11.6 -c pytorch -c nvidia</code></p>
-<p>然后编译安装apex，就很麻烦</p>
-<p>首先安装<a href="https://anaconda.org/nvidia/cuda-nvprof">cuda-nvprof</a>，这个包提供<code>cuda_profiler_api.h</code>头文件，注意版本和<code>conda list</code>列出的cuda-toolkit版本相同</p>
-<p><code>conda install -c &quot;nvidia/label/cuda-11.6.2&quot; cuda-nvprof</code></p>
-<p>clone代码并编译</p>
-<div class="highlight"><pre><span></span>pip install packaging <span class="o">&amp;&amp;</span> git clone https://github.com/NVIDIA/apex.git <span class="o">&amp;&amp;</span> <span class="nb">cd</span> apex <span class="o">&amp;&amp;</span> pip install -v --disable-pip-version-check --no-cache-dir --global-option<span class="o">=</span><span class="s2">&quot;--cpp_ext&quot;</span> --global-option<span class="o">=</span><span class="s2">&quot;--cuda_ext&quot;</span> ./
+<p>这里的$distribution要换成debian11</p>
+<p>然后安装</p>
+<div class="highlight"><pre><span></span>sudo apt-get update <span class="o">&amp;&amp;</span> sudo apt-get install -y nvidia-container-toolkit
 </pre></div>
-<p>安装另外两个包<code>conda install pytorch-sparse -c pyg</code>,<code>pip install torch_geometric</code></p>
-<p>导出环境 <code>conda env export &gt; RAGA_conda.yml</code></p>
-<p>导入 <code>conda env create -f RAGA_conda.yml</code></p>
-<p>参考自：<a href="https://github.com/PaddlePaddle/Paddle/issues/45929">https://github.com/PaddlePaddle/Paddle/issues/45929</a></p>
+<h2 id="%E6%B5%8B%E8%AF%95">&#27979;&#35797;<a class="anchor-link" href="#%E6%B5%8B%E8%AF%95">&#182;</a></h2><p>执行nvidia-smi，如果输出显卡信息则正常</p>
+<h2 id="%E5%85%B6%E5%AE%83%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88">&#20854;&#23427;&#35299;&#20915;&#26041;&#26696;<a class="anchor-link" href="#%E5%85%B6%E5%AE%83%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88">&#182;</a></h2><p><a href="https://learn.microsoft.com/en-us/windows/ai/directml/gpu-pytorch-wsl?source=recommendations">DirectML</a>，但是感觉不如nvidia-docker方便</p>
+<h2 id="%E5%8F%82%E8%80%83">&#21442;&#32771;<a class="anchor-link" href="#%E5%8F%82%E8%80%83">&#182;</a></h2><p><a href="https://learn.microsoft.com/en-us/windows/ai/directml/gpu-cuda-in-wsl">https://learn.microsoft.com/en-us/windows/ai/directml/gpu-cuda-in-wsl</a></p>
+<p><a href="https://docs.nvidia.com/ai-enterprise/deployment-guide/dg-docker.html#enabling-the-docker-repository-and-installing-the-nvidia-container-toolkit">https://docs.nvidia.com/ai-enterprise/deployment-guide/dg-docker.html#enabling-the-docker-repository-and-installing-the-nvidia-container-toolkit</a></p>
+<p><a href="https://nvidia.github.io/nvidia-docker/">https://nvidia.github.io/nvidia-docker/</a></p>
+<p><a href="https://learn.microsoft.com/en-us/windows/wsl/install">https://learn.microsoft.com/en-us/windows/wsl/install</a></p>
+<p><a href="https://docs.docker.com/desktop/windows/wsl/">https://docs.docker.com/desktop/windows/wsl/</a></p>
+<p><a href="https://www.nvidia.com/Download/index.aspx?lang=en-us">https://www.nvidia.com/Download/index.aspx?lang=en-us</a></p>
 
 </div>
 </div>
