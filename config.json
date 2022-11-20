@@ -107,6 +107,11 @@
                             "name": "SECCON CTF 2022",
                             "type": "article",
                             "mtime": 1668341676.620181
+                        },
+                        "SquareCTF": {
+                            "name": "SquareCTF 2022",
+                            "type": "article",
+                            "mtime": 1668935766.8060489
                         }
                     }
                 }
