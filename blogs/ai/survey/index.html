@@ -13151,6 +13151,20 @@ div#notebook {
 <p>因为有向图反映的是从一个节点到另一个节点的结构关系，而很多时候我们要的是这个节点与哪些节点有关系，无向图就更适合反映这样的结构性质</p>
 </blockquote>
 <p>这里可以看出，$A$本身是对称矩阵</p>
+<h2 id="Numpy%E7%9A%84BroadCast%E6%9C%BA%E5%88%B6">Numpy&#30340;BroadCast&#26426;&#21046;<a class="anchor-link" href="#Numpy%E7%9A%84BroadCast%E6%9C%BA%E5%88%B6">&#182;</a></h2><p><a href="https://docs.scipy.org/doc/numpy-1.13.0/user/basics.broadcasting.html">https://docs.scipy.org/doc/numpy-1.13.0/user/basics.broadcasting.html</a></p>
+<ul>
+<li>相同shape数组乘数组：元素对应相乘</li>
+<li>数组乘常量：每个元素乘常量，就好像常量拉伸成同样大小的数组一样</li>
+<li>其它情况：从shape右向左判断，如果相等或其中一个为1，则兼容，否则抛出错误。这时为1的维度就会扩大到另一维度</li>
+</ul>
+<p>例如</p>
+<pre><code>A      (4d array):  8 x 1 x 6 x 1
+B      (3d array):      7 x 1 x 5
+Result (4d array):  8 x 7 x 6 x 5
+</code></pre>
+<h2 id="%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0">&#28608;&#27963;&#20989;&#25968;<a class="anchor-link" href="#%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0">&#182;</a></h2><p>ReLU
+Leaky ReLU
+sigmoid</p>
 <h2 id="%E5%8F%82%E8%80%83">&#21442;&#32771;<a class="anchor-link" href="#%E5%8F%82%E8%80%83">&#182;</a></h2><p><a href="https://optimization.cbe.cornell.edu/index.php?title=Main_Page">https://optimization.cbe.cornell.edu/index.php?title=Main_Page</a></p>
 
 </div>
