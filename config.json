@@ -64,7 +64,7 @@
                     }
                 },
                 "env": {
-                    "name": "",
+                    "name": "环境配置知识",
                     "type": "directory",
                     "sub": {
                         "win-re": {
@@ -169,7 +169,7 @@
                     }
                 },
                 "env": {
-                    "name": "",
+                    "name": "环境配置笔记",
                     "type": "directory",
                     "sub": {
                         "wsl_docker": {
@@ -180,7 +180,7 @@
                     }
                 },
                 "util": {
-                    "name": "",
+                    "name": "相关工具使用笔记",
                     "type": "directory",
                     "sub": {
                         "conda": {
