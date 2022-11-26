@@ -13295,13 +13295,15 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="%5Brev%5DDoroboH">[rev]DoroboH<a class="anchor-link" href="#%5Brev%5DDoroboH">&#182;</a></h2><p>主函数导出key并传输</p>
+<h2 id="%5Brev%5DDoroboH">[rev]DoroboH<a class="anchor-link" href="#%5Brev%5DDoroboH">&#182;</a></h2><p>主函数导出key并传输，然后接收来自服务器的RC4密钥并加密传输数据。</p>
 <p>流量中过滤：ip.dst==192.168.3.6 or ip.src==192.168.3.6</p>
 <p>发送长度：0x50，发送数据：0602000002aa0000004448310002000046a717b1d54537e862f6ba6f809aed0021afc44b8c95c9bec809518f10001cc96489ad8914e1d4e008aa60be8fe36f9b156e358940bbc1aa709098d93957e637</p>
 <p>接收长度0x50，接收数据：0602000002aa00000044483100020000288f76749ec20b9ab18c618418ae9a70722618dc685e667fc0c19b906a6aa3a571f473ea0eaada269f29860d55ddcba0367ee6f7a1fac83d2d7395482930b3b8</p>
 <p>又接收两次数据
 0x67:8c28c20d027aa8bc9a71b107022421e907340de0f9a4c540611f2d95b560f8435fdb44ecb38876ddab1fe3ffcaf26aeb65b7f7f4d1d0bc6ceec521c77c27cd0ffba4a9d007228c478288b906b64d832be9822e123ec4a5abbc155a24b63a8c657c05ff6148124f</p>
 <p>0x66:8c28c20d027aa8bc9a6bd436240c1df73e2714bfabaefb7d340635df9174e24719dd3bcce89572ddad49ac8c93f122aa61ada3f3cb8aa1288bab33957169fd04c482a797556ff067ccb2b031b64c9b03e586142015d5bfa6a1194b0cb939832c2609f3184f18</p>
+<p>参考：<a href="https://github.com/sprushed/seccon2022_writeups/tree/master/reverse/DoroboH">https://github.com/sprushed/seccon2022_writeups/tree/master/reverse/DoroboH</a></p>
+<p>首先应理解HCRYPTKEY的内存排布，，包含加密的指向下一个内部结构的指针，指针中包含密钥的offset。指针通过xor 0xA2491D83D96214A0进行加密，找到的方法是搜索内存，找指向dssenh_CPDecrypt函数的指针，一共有3个，其中一个指向rc4 key。</p>
 
 </div>
 </div>
@@ -13337,6 +13339,16 @@ div#notebook {
 </div>
 </div>
 
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="%5Brev%5DElderCmp">[rev]ElderCmp<a class="anchor-link" href="#%5Brev%5DElderCmp">&#182;</a></h2><p>参考 <a href="https://www.nec.com/en/global/rd/tg/code/symenc/pdf/twine_LC11.pdf">https://www.nec.com/en/global/rd/tg/code/symenc/pdf/twine_LC11.pdf</a></p>
+<p><a href="https://github.com/sprushed/seccon2022_writeups/tree/master/reverse/ElderCMP">https://github.com/sprushed/seccon2022_writeups/tree/master/reverse/ElderCMP</a></p>
+<p>会进入__detect_debugger，并进行了一些控制流混淆，不执行main函数，而是进入heart函数，其中包含混淆的key和一个twine加密，并且每8byte进行一次加密</p>
+
+</div>
+</div>
 </div>
     </div>
   </div>
