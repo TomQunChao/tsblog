@@ -3,6 +3,7 @@ import os
 import json
 import jinja2
 import time
+import argparse
 # print("root path:",os.path.abspath(ROOT))
 gen_cmd = "jupyter nbconvert --template classic --to html --theme {theme} --output {out_path} {src_path}"
 mkdir_cmd = "mkdir {path}"
@@ -204,12 +205,11 @@ class Generator:
         open("index.html", "w").write(
             f'<!DOCTYPE html><html><head></head><body><script>document.location.href="{"/".join(self.config["dst_root"])}"</script></body></html>')
 
-    def _deploy(self):
+    def deploy(self):
         os.system("git add *")
         os.system("git commit -m 'tsblog auto commit'")
         os.system("git push origin main")
-
-    def run(self):
+    def generate(self):
         self._gen_pages()
         self._render_category()
         self._render_about()
@@ -217,10 +217,22 @@ class Generator:
         self._render_index()
 
         self._save()
+    def run(self):
+        self.generate()
         if self.auto_deploy:
-            self._deploy()
+            self.deploy()
 
-
+parser=argparse.ArgumentParser(prog="tsblog")
+parser.add_argument('-D','--deploy',action='store_true',default=False)
+parser.add_argument('-G','--generate',action='store_true',default=False)
 if __name__ == '__main__':
+    args=parser.parse_args()
     g = Generator("config.json")
-    g.run()
+    if args.deploy and args.generate:
+        g.run()
+    elif args.deploy:
+        g.deploy()
+    elif args.generate:
+        g.generate()
+    else:
+        g.run()

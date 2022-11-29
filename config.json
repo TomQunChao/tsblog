@@ -18,7 +18,7 @@
     "name_tag": "<span class=\"ax-name\">",
     "name_tag_t": "</span>",
     "force_update": false,
-    "auto_deploy": true,
+    "auto_deploy": false,
     "theme": "night",
     "disallow_dir": [
         [
@@ -92,7 +92,7 @@
                         "战争与和平": {
                             "name": "《战争与和平》读书笔记",
                             "type": "article",
-                            "mtime": 1669723932.519663
+                            "mtime": 1669724053.2876954
                         }
                     }
                 }
