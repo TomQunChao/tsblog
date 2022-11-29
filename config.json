@@ -86,7 +86,7 @@
             "type": "directory",
             "sub": {
                 "reading": {
-                    "name": "",
+                    "name": "读书笔记",
                     "type": "directory",
                     "sub": {
                         "战争与和平": {
