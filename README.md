@@ -1,6 +1,6 @@
 # TongShuai's Blog generated based on jupyter
 
-这是一个非常小的精简的博客生成器，基于jupyter，本文件夹也是博客生成器生成的博客，可以在这里访问`tsblog.pages.dev`
+这是一个非常小的精简的博客生成器，基于jupyter，本文件夹也是博客生成器生成的博客，可以在这里访问`https://tsblog.pages.dev`
 
 安装：`pip install -r requirements.txt`
 
@@ -12,7 +12,7 @@
 
 图片请放在`img`文件夹，资源请放在`assets`文件夹，会自动拷贝
 
-推荐使用`markdown paste`的
+推荐使用vscode插件`markdown paste`或jupyter-lab自带的图片粘贴功能
 
 首先生成一次无误后，可以配置`auto_deploy=true`自动部署！
 
