@@ -229,7 +229,8 @@ if __name__ == '__main__':
     args=parser.parse_args()
     g = Generator("config.json")
     if args.deploy and args.generate:
-        g.run()
+        g.generate()
+        g.deploy()
     elif args.deploy:
         g.deploy()
     elif args.generate:
