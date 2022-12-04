@@ -30,6 +30,8 @@
 
 - [ ] 友链利用js根据`friends.json`生成，这样可以通过提交pr增加友链
 - [ ] 目录利用js根据`category_list.json`生成
+- [ ] 优化目录表示形式
 - [ ] about改为json模式并利用js生成
 - [ ] index改为json模式并利用js生成
 - [ ] (可选)夜间模式
+- [ ] (可选)文章搜索功能
