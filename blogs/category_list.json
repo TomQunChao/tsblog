@@ -1,0 +1,1038 @@
+{
+    "development": {
+        "name": "开发",
+        "type": "directory",
+        "sub": {
+            "algorithm": {
+                "name": "算法",
+                "type": "directory",
+                "sub": {
+                    "bin-graph": {
+                        "name": "",
+                        "type": "directory",
+                        "sub": {
+                            "note.md": {
+                                "type": "article",
+                                "mtime": 1669987506.9249637,
+                                "name": "二分图和匈牙利算法",
+                                "hash": null,
+                                "link": "development/algorithm/bin-graph/note.md.html"
+                            }
+                        }
+                    },
+                    "double-stack": {
+                        "name": "",
+                        "type": "directory",
+                        "sub": {
+                            "note.ipynb": {
+                                "type": "article",
+                                "mtime": 1668338655.3750584,
+                                "name": "双栈法搜索节点间任意路径学习",
+                                "hash": null,
+                                "link": "development/algorithm/double-stack/note.ipynb.html"
+                            }
+                        }
+                    }
+                }
+            },
+            "env": {
+                "name": "环境配置",
+                "type": "directory",
+                "sub": {
+                    "apt-key-legacy": {
+                        "name": "",
+                        "type": "directory",
+                        "sub": {
+                            "note.ipynb": {
+                                "type": "article",
+                                "mtime": 1669199337.2976913,
+                                "name": "Key is stored in legacy trusted.gpg keyring",
+                                "hash": null,
+                                "link": "development/env/apt-key-legacy/note.ipynb.html"
+                            }
+                        }
+                    },
+                    "win-re": {
+                        "name": "",
+                        "type": "directory",
+                        "sub": {
+                            "note.ipynb": {
+                                "type": "article",
+                                "mtime": 1668646827.22147,
+                                "name": "Windows 恢复分区移动指南",
+                                "hash": null,
+                                "link": "development/env/win-re/note.ipynb.html"
+                            }
+                        }
+                    }
+                }
+            },
+            "protocol": {
+                "name": "协议学习",
+                "type": "directory",
+                "sub": {
+                    "webhook": {
+                        "name": "",
+                        "type": "directory",
+                        "sub": {
+                            "note.md": {
+                                "type": "article",
+                                "mtime": 1670124364.6513572,
+                                "name": "Webhook学习",
+                                "hash": null,
+                                "link": "development/protocol/webhook/note.md.html"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "life": {
+        "name": "生活",
+        "type": "directory",
+        "sub": {
+            "reading": {
+                "name": "读书笔记",
+                "type": "directory",
+                "sub": {
+                    "战争与和平": {
+                        "name": "",
+                        "type": "directory",
+                        "sub": {
+                            "note.ipynb": {
+                                "type": "article",
+                                "mtime": 1669783554.7659714,
+                                "name": "《战争与和平》读书笔记",
+                                "hash": null,
+                                "link": "life/reading/战争与和平/note.ipynb.html"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "ctf_writeup": {
+        "name": "CTF Writeup",
+        "type": "directory",
+        "sub": {
+            "2022": {
+                "name": "2022",
+                "type": "directory",
+                "sub": {
+                    "hitcon": {
+                        "name": "",
+                        "type": "directory",
+                        "sub": {
+                            "wp.ipynb": {
+                                "type": "article",
+                                "mtime": 1669617012.8617647,
+                                "name": "Hitcon 2022",
+                                "hash": null,
+                                "link": "ctf_writeup/2022/hitcon/wp.ipynb.html"
+                            }
+                        }
+                    },
+                    "seccon-quals": {
+                        "name": "",
+                        "type": "directory",
+                        "sub": {
+                            "wp.ipynb": {
+                                "type": "article",
+                                "mtime": 1669465374.8165393,
+                                "name": "SECCON CTF 2022",
+                                "hash": null,
+                                "link": "ctf_writeup/2022/seccon-quals/wp.ipynb.html"
+                            }
+                        }
+                    },
+                    "SquareCTF": {
+                        "name": "",
+                        "type": "directory",
+                        "sub": {
+                            "wp.ipynb": {
+                                "type": "article",
+                                "mtime": 1668935766.8060489,
+                                "name": "SquareCTF 2022",
+                                "hash": null,
+                                "link": "ctf_writeup/2022/SquareCTF/wp.ipynb.html"
+                            }
+                        }
+                    }
+                }
+            },
+            "buuoj": {
+                "name": "",
+                "type": "directory",
+                "sub": {
+                    "wp.ipynb": {
+                        "type": "article",
+                        "mtime": 1668342387.7329178,
+                        "name": "在buuoj的刷题记录",
+                        "hash": null,
+                        "link": "ctf_writeup/buuoj/wp.ipynb.html"
+                    },
+                    "wp.md": {
+                        "type": "article",
+                        "mtime": 1667809673.5265737,
+                        "name": "&lt unknown title article &gt",
+                        "hash": null,
+                        "link": "ctf_writeup/buuoj/wp.md.html"
+                    }
+                }
+            },
+            "ctfhub": {
+                "name": "CTFhub",
+                "type": "directory",
+                "sub": {
+                    "pwn.md": {
+                        "type": "article",
+                        "mtime": 1670123845.0150301,
+                        "name": "pwn学习笔记",
+                        "hash": null,
+                        "link": "ctf_writeup/ctfhub/pwn.md.html"
+                    },
+                    "wp.md": {
+                        "type": "article",
+                        "mtime": 1668263487.9816031,
+                        "name": "在ctfhub的刷题记录",
+                        "hash": null,
+                        "link": "ctf_writeup/ctfhub/wp.md.html"
+                    }
+                }
+            },
+            "xctf": {
+                "name": "",
+                "type": "directory",
+                "sub": {
+                    "wp.md": {
+                        "type": "article",
+                        "mtime": 1656374540.0,
+                        "name": "XCTF刷题笔记",
+                        "hash": null,
+                        "link": "ctf_writeup/xctf/wp.md.html"
+                    }
+                }
+            }
+        }
+    },
+    "ai": {
+        "name": "AI",
+        "type": "directory",
+        "sub": {
+            "entity_alignment": {
+                "name": "实体对齐",
+                "type": "directory",
+                "sub": {
+                    "survey": {
+                        "name": "",
+                        "type": "directory",
+                        "sub": {
+                            "note.ipynb": {
+                                "type": "article",
+                                "mtime": 1669904122.80051,
+                                "name": "实体对齐文献阅读笔记",
+                                "hash": null,
+                                "link": "ai/entity_alignment/survey/note.ipynb.html"
+                            }
+                        }
+                    }
+                }
+            },
+            "env": {
+                "name": "环境配置",
+                "type": "directory",
+                "sub": {
+                    "wsl_docker": {
+                        "name": "",
+                        "type": "directory",
+                        "sub": {
+                            "note.ipynb": {
+                                "type": "article",
+                                "mtime": 1668607934.4675064,
+                                "name": "WSL配置Nvidia深度学习环境笔记",
+                                "hash": null,
+                                "link": "ai/env/wsl_docker/note.ipynb.html"
+                            }
+                        }
+                    }
+                }
+            },
+            "GAN": {
+                "name": "GAN",
+                "type": "directory",
+                "sub": {
+                    "note.md": {
+                        "type": "article",
+                        "mtime": 1666944392.0,
+                        "name": "GAN学习",
+                        "hash": null,
+                        "link": "ai/GAN/note.md.html"
+                    }
+                }
+            },
+            "GNN": {
+                "name": "",
+                "type": "directory",
+                "sub": {
+                    "note.md": {
+                        "type": "article",
+                        "mtime": 1666919178.0,
+                        "name": "Graph Neural Network",
+                        "hash": null,
+                        "link": "ai/GNN/note.md.html"
+                    }
+                }
+            },
+            "nlp": {
+                "name": "NLP",
+                "type": "directory",
+                "sub": {
+                    "transformer": {
+                        "name": "",
+                        "type": "directory",
+                        "sub": {
+                            "note.ipynb": {
+                                "type": "article",
+                                "mtime": 1668583390.8695216,
+                                "name": "Attention is All I need: Transformer学习笔记",
+                                "hash": null,
+                                "link": "ai/nlp/transformer/note.ipynb.html"
+                            }
+                        }
+                    }
+                }
+            },
+            "survey": {
+                "name": "",
+                "type": "directory",
+                "sub": {
+                    "note.md": {
+                        "type": "article",
+                        "mtime": 1666945718.0,
+                        "name": "AI综述",
+                        "hash": null,
+                        "link": "ai/survey/note.md.html"
+                    }
+                }
+            },
+            "torch": {
+                "name": "",
+                "type": "directory",
+                "sub": {
+                    "note.ipynb": {
+                        "type": "article",
+                        "mtime": 1668263596.3898692,
+                        "name": "PyTorch学习笔记",
+                        "hash": null,
+                        "link": "ai/torch/note.ipynb.html"
+                    }
+                }
+            },
+            "util": {
+                "name": "常用工具集合",
+                "type": "directory",
+                "sub": {
+                    "conda": {
+                        "name": "",
+                        "type": "directory",
+                        "sub": {
+                            "note.ipynb": {
+                                "type": "article",
+                                "mtime": 1669550764.8279595,
+                                "name": "Conda常用用法",
+                                "hash": null,
+                                "link": "ai/util/conda/note.ipynb.html"
+                            }
+                        }
+                    },
+                    "torch": {
+                        "name": "",
+                        "type": "directory",
+                        "sub": {
+                            "note.ipynb": {
+                                "type": "article",
+                                "mtime": 1669257181.8025508,
+                                "name": "Torch常用库和相关问题解决",
+                                "hash": null,
+                                "link": "ai/util/torch/note.ipynb.html"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "information_security": {
+        "name": "信息安全",
+        "type": "directory",
+        "sub": {
+            "pwn": {
+                "name": "漏洞挖掘",
+                "type": "directory",
+                "sub": {
+                    "paper_reading": {
+                        "name": "论文阅读笔记",
+                        "type": "directory",
+                        "sub": {
+                            "Analysis-of-DTLS-Implementations-Using-Protocol-State-Fuzzing": {
+                                "name": "",
+                                "type": "directory",
+                                "sub": {
+                                    "note.ipynb": {
+                                        "type": "article",
+                                        "mtime": 1668306119.7025223,
+                                        "name": "Analysis of DTLS Implementations Using Protocol State Fuzzing",
+                                        "hash": null,
+                                        "link": "information_security/pwn/paper_reading/Analysis-of-DTLS-Implementations-Using-Protocol-State-Fuzzing/note.ipynb.html"
+                                    }
+                                }
+                            },
+                            "breaking-through-binarys-compiler": {
+                                "name": "",
+                                "type": "directory",
+                                "sub": {
+                                    "note.ipynb": {
+                                        "type": "article",
+                                        "mtime": 1668306119.7045221,
+                                        "name": "Breaking Through Binaries: Compiler-quality Instrumentation for Better Binary-only Fuzzing",
+                                        "hash": null,
+                                        "link": "information_security/pwn/paper_reading/breaking-through-binarys-compiler/note.ipynb.html"
+                                    }
+                                }
+                            },
+                            "Diane-Identifying-Fuzzing-Triggers-in-Apps-to-Generate-Under-constrained-Inputs-for-IoT-Devices": {
+                                "name": "",
+                                "type": "directory",
+                                "sub": {
+                                    "note.ipynb": {
+                                        "type": "article",
+                                        "mtime": 1668306119.7055225,
+                                        "name": "Diane: Identifying Fuzzing Triggers in Apps to Generate Under-constrained Inputs for IoT Devices",
+                                        "hash": null,
+                                        "link": "information_security/pwn/paper_reading/Diane-Identifying-Fuzzing-Triggers-in-Apps-to-Generate-Under-constrained-Inputs-for-IoT-Devices/note.ipynb.html"
+                                    }
+                                }
+                            },
+                            "EcoFuzz-Adaptive-Energy-Saving-Greybox-Fuzzing-as-a-Variant-of-the-Adversarial-Multi-Armed-Bandit": {
+                                "name": "",
+                                "type": "directory",
+                                "sub": {
+                                    "note.ipynb": {
+                                        "type": "article",
+                                        "mtime": 1668306119.7065222,
+                                        "name": "EcoFuzz: Adaptive Energy-Saving Greybox Fuzzing as a Variant of the Adversarial Multi-Armed Bandit",
+                                        "hash": null,
+                                        "link": "information_security/pwn/paper_reading/EcoFuzz-Adaptive-Energy-Saving-Greybox-Fuzzing-as-a-Variant-of-the-Adversarial-Multi-Armed-Bandit/note.ipynb.html"
+                                    }
+                                }
+                            },
+                            "FuzzGen-Automatic-Fuzzer-Generation": {
+                                "name": "",
+                                "type": "directory",
+                                "sub": {
+                                    "note.ipynb": {
+                                        "type": "article",
+                                        "mtime": 1668306119.7075222,
+                                        "name": "FuzzGen: Automatic Fuzzer Generation",
+                                        "hash": null,
+                                        "link": "information_security/pwn/paper_reading/FuzzGen-Automatic-Fuzzer-Generation/note.ipynb.html"
+                                    }
+                                }
+                            },
+                            "Fuzzification-Anti-Fuzzing-Techniques": {
+                                "name": "",
+                                "type": "directory",
+                                "sub": {
+                                    "note.ipynb": {
+                                        "type": "article",
+                                        "mtime": 1668306119.7085223,
+                                        "name": "Fuzzification: Anti-Fuzzing Techniques",
+                                        "hash": null,
+                                        "link": "information_security/pwn/paper_reading/Fuzzification-Anti-Fuzzing-Techniques/note.ipynb.html"
+                                    }
+                                }
+                            },
+                            "Fuzzing-Error-Handling-Code-using-Context-Sensitive-Software-Fault-Injection": {
+                                "name": "",
+                                "type": "directory",
+                                "sub": {
+                                    "note.ipynb": {
+                                        "type": "article",
+                                        "mtime": 1668306119.7095222,
+                                        "name": "Fuzzing Error Handling Code using Context-Sensitive Software Fault Injection",
+                                        "hash": null,
+                                        "link": "information_security/pwn/paper_reading/Fuzzing-Error-Handling-Code-using-Context-Sensitive-Software-Fault-Injection/note.ipynb.html"
+                                    }
+                                }
+                            },
+                            "icsfuzz-Manipulating-io-s-and": {
+                                "name": "",
+                                "type": "directory",
+                                "sub": {
+                                    "note.ipynb": {
+                                        "type": "article",
+                                        "mtime": 1668306119.7115219,
+                                        "name": "ICSFuzz: Manipulating I/Os and Repurposing Binary Code to Enable Instrumented Fuzzing in ICS Control Applications阅读笔记",
+                                        "hash": null,
+                                        "link": "information_security/pwn/paper_reading/icsfuzz-Manipulating-io-s-and/note.ipynb.html"
+                                    }
+                                }
+                            },
+                            "Nyx-Greybox-Hypervisor-Fuzzing-using-Fast-Snapshots-and-Affine-Types": {
+                                "name": "",
+                                "type": "directory",
+                                "sub": {
+                                    "note.ipynb": {
+                                        "type": "article",
+                                        "mtime": 1668306119.7125223,
+                                        "name": "Nyx: Greybox Hypervisor Fuzzing using Fast Snapshots and Affine Types",
+                                        "hash": null,
+                                        "link": "information_security/pwn/paper_reading/Nyx-Greybox-Hypervisor-Fuzzing-using-Fast-Snapshots-and-Affine-Types/note.ipynb.html"
+                                    }
+                                }
+                            },
+                            "ParmeSan-Sanitizer-guided-Greybox-Fuzzing": {
+                                "name": "",
+                                "type": "directory",
+                                "sub": {
+                                    "note.ipynb": {
+                                        "type": "article",
+                                        "mtime": 1668306119.7135222,
+                                        "name": "ParmeSan: Sanitizer-guided Greybox Fuzzing",
+                                        "hash": null,
+                                        "link": "information_security/pwn/paper_reading/ParmeSan-Sanitizer-guided-Greybox-Fuzzing/note.ipynb.html"
+                                    }
+                                }
+                            },
+                            "sok": {
+                                "name": "",
+                                "type": "directory",
+                                "sub": {
+                                    "note.ipynb": {
+                                        "type": "article",
+                                        "mtime": 1668306119.7145233,
+                                        "name": "(State of) The Art of War: Offensive Techniques in Binary Analysis",
+                                        "hash": null,
+                                        "link": "information_security/pwn/paper_reading/sok/note.ipynb.html"
+                                    }
+                                }
+                            },
+                            "unifuzz-a-holistic-and-pragmatic": {
+                                "name": "",
+                                "type": "directory",
+                                "sub": {
+                                    "note.ipynb": {
+                                        "type": "article",
+                                        "mtime": 1668306119.7145233,
+                                        "name": "&lt unknown title article &gt",
+                                        "hash": null,
+                                        "link": "information_security/pwn/paper_reading/unifuzz-a-holistic-and-pragmatic/note.ipynb.html"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "rev": {
+                "name": "逆向工程",
+                "type": "directory",
+                "sub": {
+                    "AntiDebug": {
+                        "name": "",
+                        "type": "directory",
+                        "sub": {
+                            "note.ipynb": {
+                                "type": "article",
+                                "mtime": 1668306119.7165222,
+                                "name": "反调试技术合集",
+                                "hash": null,
+                                "link": "information_security/rev/AntiDebug/note.ipynb.html"
+                            }
+                        }
+                    },
+                    "APC-injec": {
+                        "name": "",
+                        "type": "directory",
+                        "sub": {
+                            "note.ipynb": {
+                                "type": "article",
+                                "mtime": 1668306119.7175221,
+                                "name": "APC注入技术",
+                                "hash": null,
+                                "link": "information_security/rev/APC-injec/note.ipynb.html"
+                            }
+                        }
+                    },
+                    "binwalk": {
+                        "name": "",
+                        "type": "directory",
+                        "sub": {
+                            "note.ipynb": {
+                                "type": "article",
+                                "mtime": 1668306119.7185247,
+                                "name": "Binwalk安装踩坑指南",
+                                "hash": null,
+                                "link": "information_security/rev/binwalk/note.ipynb.html"
+                            }
+                        }
+                    },
+                    "boches": {
+                        "name": "",
+                        "type": "directory",
+                        "sub": {
+                            "note.ipynb": {
+                                "type": "article",
+                                "mtime": 1668306119.7195222,
+                                "name": "Boches虚拟机学习",
+                                "hash": null,
+                                "link": "information_security/rev/boches/note.ipynb.html"
+                            }
+                        }
+                    },
+                    "Detours": {
+                        "name": "",
+                        "type": "directory",
+                        "sub": {
+                            "note.ipynb": {
+                                "type": "article",
+                                "mtime": 1668306119.7205224,
+                                "name": "Detours学习",
+                                "hash": null,
+                                "link": "information_security/rev/Detours/note.ipynb.html"
+                            }
+                        }
+                    },
+                    "dynamic_anatool": {
+                        "name": "",
+                        "type": "directory",
+                        "sub": {
+                            "note.ipynb": {
+                                "type": "article",
+                                "mtime": 1668306119.7215223,
+                                "name": "三个用于恶意软件动态分析的使用方法",
+                                "hash": null,
+                                "link": "information_security/rev/dynamic_anatool/note.ipynb.html"
+                            }
+                        }
+                    },
+                    "Havens_gate": {
+                        "name": "",
+                        "type": "directory",
+                        "sub": {
+                            "note.ipynb": {
+                                "type": "article",
+                                "mtime": 1668306119.7225223,
+                                "name": "天堂之门技术",
+                                "hash": null,
+                                "link": "information_security/rev/Havens_gate/note.ipynb.html"
+                            }
+                        }
+                    },
+                    "IAThook": {
+                        "name": "",
+                        "type": "directory",
+                        "sub": {
+                            "note.ipynb": {
+                                "type": "article",
+                                "mtime": 1668306119.7235224,
+                                "name": "IAT hook",
+                                "hash": null,
+                                "link": "information_security/rev/IAThook/note.ipynb.html"
+                            }
+                        }
+                    },
+                    "paper_reading": {
+                        "name": "论文阅读笔记",
+                        "type": "directory",
+                        "sub": {
+                            "CruParamer-Learning-on-Parameter-Augmented-API-Sequences-for-Malware-Detection": {
+                                "name": "",
+                                "type": "directory",
+                                "sub": {
+                                    "note.ipynb": {
+                                        "type": "article",
+                                        "mtime": 1668306119.724522,
+                                        "name": "CruParamer: Learning on Parameter-Augmented API Sequences for Malware Detection",
+                                        "hash": null,
+                                        "link": "information_security/rev/paper_reading/CruParamer-Learning-on-Parameter-Augmented-API-Sequences-for-Malware-Detection/note.ipynb.html"
+                                    }
+                                }
+                            },
+                            "does-every-second-count": {
+                                "name": "",
+                                "type": "directory",
+                                "sub": {
+                                    "note.ipynb": {
+                                        "type": "article",
+                                        "mtime": 1668306119.7255223,
+                                        "name": "Does Every Second Count?  Time-based Evolution of Malware Behavior in Sandboxes",
+                                        "hash": null,
+                                        "link": "information_security/rev/paper_reading/does-every-second-count/note.ipynb.html"
+                                    }
+                                }
+                            },
+                            "exspectre-hiding-malware-in-speculativeo-execution": {
+                                "name": "",
+                                "type": "directory",
+                                "sub": {
+                                    "note.ipynb": {
+                                        "type": "article",
+                                        "mtime": 1668306119.7265236,
+                                        "name": "ExSpectre: Hiding Malware in Speculative Execution",
+                                        "hash": null,
+                                        "link": "information_security/rev/paper_reading/exspectre-hiding-malware-in-speculativeo-execution/note.ipynb.html"
+                                    }
+                                }
+                            },
+                            "Forecasting-Malware-Capabilities-From-Cyber-Attack-Memory-Images": {
+                                "name": "",
+                                "type": "directory",
+                                "sub": {
+                                    "note.ipynb": {
+                                        "type": "article",
+                                        "mtime": 1668306119.7275229,
+                                        "name": "Forecasting Malware Capabilities From Cyber Attack Memory Images",
+                                        "hash": null,
+                                        "link": "information_security/rev/paper_reading/Forecasting-Malware-Capabilities-From-Cyber-Attack-Memory-Images/note.ipynb.html"
+                                    }
+                                }
+                            },
+                            "how-ml-is-solv-binary-function": {
+                                "name": "",
+                                "type": "directory",
+                                "sub": {
+                                    "note.ipynb": {
+                                        "type": "article",
+                                        "mtime": 1668306119.7295225,
+                                        "name": "How Machine Learning Is Solving the Binary Function Similarity Problem",
+                                        "hash": null,
+                                        "link": "information_security/rev/paper_reading/how-ml-is-solv-binary-function/note.ipynb.html"
+                                    }
+                                }
+                            },
+                            "Identifying-ATTCK-Tactics-in-Android-Malware-Control-Flow-Graph-Through-Graph-Representation-Learning-and-Interpretability": {
+                                "name": "",
+                                "type": "directory",
+                                "sub": {
+                                    "note.ipynb": {
+                                        "type": "article",
+                                        "mtime": 1668306119.7305224,
+                                        "name": "Identifying ATT&CK Tactics in Android Malware Control Flow Graph Through Graph Representation Learning and Interpretability",
+                                        "hash": null,
+                                        "link": "information_security/rev/paper_reading/Identifying-ATTCK-Tactics-in-Android-Malware-Control-Flow-Graph-Through-Graph-Representation-Learning-and-Interpretability/note.ipynb.html"
+                                    }
+                                }
+                            },
+                            "Measuring-and-Modeling-the-Label-Dynamics-of-Online-Anti-Malware-Engines": {
+                                "name": "",
+                                "type": "directory",
+                                "sub": {
+                                    "note.ipynb": {
+                                        "type": "article",
+                                        "mtime": 1668306119.731522,
+                                        "name": "Measuring and Modeling the Label Dynamics of Online Anti-Malware Engines",
+                                        "hash": null,
+                                        "link": "information_security/rev/paper_reading/Measuring-and-Modeling-the-Label-Dynamics-of-Online-Anti-Malware-Engines/note.ipynb.html"
+                                    }
+                                }
+                            },
+                            "PatchGuard-A-Provably-Robust-Defense-against-Adversarial-Patches-via-Small-Receptive-Fieldsand-Masking": {
+                                "name": "",
+                                "type": "directory",
+                                "sub": {
+                                    "note.ipynb": {
+                                        "type": "article",
+                                        "mtime": 1668306119.7325222,
+                                        "name": "PatchGuard: A Provably Robust Defense against Adversarial Patches via Small Receptive Fieldsand Masking",
+                                        "hash": null,
+                                        "link": "information_security/rev/paper_reading/PatchGuard-A-Provably-Robust-Defense-against-Adversarial-Patches-via-Small-Receptive-Fieldsand-Masking/note.ipynb.html"
+                                    }
+                                }
+                            },
+                            "Prevalence-and-Impact-of-Low-Entropy-Packing-Schemes-in-the-Malware-Ecosystem": {
+                                "name": "",
+                                "type": "directory",
+                                "sub": {
+                                    "note.ipynb": {
+                                        "type": "article",
+                                        "mtime": 1668306119.7335222,
+                                        "name": "Prevalence and Impact of Low-Entropy Packing Schemes in the Malware Ecosystem",
+                                        "hash": null,
+                                        "link": "information_security/rev/paper_reading/Prevalence-and-Impact-of-Low-Entropy-Packing-Schemes-in-the-Malware-Ecosystem/note.ipynb.html"
+                                    }
+                                }
+                            },
+                            "Survivalism_Systematic_Analysis_of_Windows_Malware_Living-Off-The-Land": {
+                                "name": "",
+                                "type": "directory",
+                                "sub": {
+                                    "note.ipynb": {
+                                        "type": "article",
+                                        "mtime": 1668306119.735522,
+                                        "name": "Survivalism: Systematic Analysis of Windows Malware Living-Off-The-Land",
+                                        "hash": null,
+                                        "link": "information_security/rev/paper_reading/Survivalism_Systematic_Analysis_of_Windows_Malware_Living-Off-The-Land/note.ipynb.html"
+                                    }
+                                }
+                            },
+                            "TESSERACT-Eliminating-Experimental-Bias-in-Malware-Classification-across-Space-and-Time": {
+                                "name": "",
+                                "type": "directory",
+                                "sub": {
+                                    "note.ipynb": {
+                                        "type": "article",
+                                        "mtime": 1668306119.736522,
+                                        "name": "TESSERACT: Eliminating Experimental Bias in Malware Classification across Space and Time",
+                                        "hash": null,
+                                        "link": "information_security/rev/paper_reading/TESSERACT-Eliminating-Experimental-Bias-in-Malware-Classification-across-Space-and-Time/note.ipynb.html"
+                                    }
+                                }
+                            },
+                            "The-Circle-Of-Life-A-Large-Scale-Study-of-The-IoT-Malware-Lifecycle": {
+                                "name": "",
+                                "type": "directory",
+                                "sub": {
+                                    "note.ipynb": {
+                                        "type": "article",
+                                        "mtime": 1668306119.7375224,
+                                        "name": "The Circle Of Life: A Large-Scale Study of The IoT Malware Lifecycle",
+                                        "hash": null,
+                                        "link": "information_security/rev/paper_reading/The-Circle-Of-Life-A-Large-Scale-Study-of-The-IoT-Malware-Lifecycle/note.ipynb.html"
+                                    }
+                                }
+                            },
+                            "understanding-malious-cross_library-data-harvesting": {
+                                "name": "",
+                                "type": "directory",
+                                "sub": {
+                                    "note.ipynb": {
+                                        "type": "article",
+                                        "mtime": 1668306119.7385216,
+                                        "name": "Understanding Malicious Cross-library Data Harvesting on Android",
+                                        "hash": null,
+                                        "link": "information_security/rev/paper_reading/understanding-malious-cross_library-data-harvesting/note.ipynb.html"
+                                    }
+                                }
+                            },
+                            "When-Malware-is-Packin-Heat-Limits-of-Machine-Learning-Classifiers-Based-on-Static-Analysis-Features": {
+                                "name": "",
+                                "type": "directory",
+                                "sub": {
+                                    "note.ipynb": {
+                                        "type": "article",
+                                        "mtime": 1668306119.7395222,
+                                        "name": "When Malware is Packin' Heat; Limits of Machine Learning Classifiers Based on Static Analysis Features",
+                                        "hash": null,
+                                        "link": "information_security/rev/paper_reading/When-Malware-is-Packin-Heat-Limits-of-Machine-Learning-Classifiers-Based-on-Static-Analysis-Features/note.ipynb.html"
+                                    }
+                                }
+                            },
+                            "wired-machines-in-elf": {
+                                "name": "",
+                                "type": "directory",
+                                "sub": {
+                                    "note.ipynb": {
+                                        "type": "article",
+                                        "mtime": 1668306119.7415223,
+                                        "name": "“Weird Machines” in ELF: A Spotlight on the Underappreciated Metadata",
+                                        "hash": null,
+                                        "link": "information_security/rev/paper_reading/wired-machines-in-elf/note.ipynb.html"
+                                    }
+                                }
+                            },
+                            "yarix-scalable-yara-based": {
+                                "name": "",
+                                "type": "directory",
+                                "sub": {
+                                    "note.ipynb": {
+                                        "type": "article",
+                                        "mtime": 1668306119.7425222,
+                                        "name": "YarIx: Scalable YARA-based Malware Intelligence",
+                                        "hash": null,
+                                        "link": "information_security/rev/paper_reading/yarix-scalable-yara-based/note.ipynb.html"
+                                    }
+                                }
+                            },
+                            "you-are-what-you-do-hunting-stealthy": {
+                                "name": "",
+                                "type": "directory",
+                                "sub": {
+                                    "note.ipynb": {
+                                        "type": "article",
+                                        "mtime": 1668306119.743523,
+                                        "name": "You Are What You Do: Hunting Stealthy Malware via Data Provenance Analysis",
+                                        "hash": null,
+                                        "link": "information_security/rev/paper_reading/you-are-what-you-do-hunting-stealthy/note.ipynb.html"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "PatchGuard": {
+                        "name": "",
+                        "type": "directory",
+                        "sub": {
+                            "note.ipynb": {
+                                "type": "article",
+                                "mtime": 1668306119.7445228,
+                                "name": "PatchGuard(Kernel Patch Protect)学习",
+                                "hash": null,
+                                "link": "information_security/rev/PatchGuard/note.ipynb.html"
+                            }
+                        }
+                    },
+                    "pyd": {
+                        "name": "",
+                        "type": "directory",
+                        "sub": {
+                            "note.ipynb": {
+                                "type": "article",
+                                "mtime": 1668306119.7445228,
+                                "name": "Pyd逆向学习",
+                                "hash": null,
+                                "link": "information_security/rev/pyd/note.ipynb.html"
+                            }
+                        }
+                    },
+                    "remote-thread-injection": {
+                        "name": "",
+                        "type": "directory",
+                        "sub": {
+                            "note.ipynb": {
+                                "type": "article",
+                                "mtime": 1668306119.7455223,
+                                "name": "远程线程注入",
+                                "hash": null,
+                                "link": "information_security/rev/remote-thread-injection/note.ipynb.html"
+                            }
+                        }
+                    },
+                    "rev_exps": {
+                        "name": "逆向工程经验谈",
+                        "type": "directory"
+                    },
+                    "SeDebugPrivilege": {
+                        "name": "",
+                        "type": "directory",
+                        "sub": {
+                            "note.ipynb": {
+                                "type": "article",
+                                "mtime": 1668306119.7465222,
+                                "name": "SeDebugPrivilege提权",
+                                "hash": null,
+                                "link": "information_security/rev/SeDebugPrivilege/note.ipynb.html"
+                            }
+                        }
+                    },
+                    "self-remap": {
+                        "name": "",
+                        "type": "directory",
+                        "sub": {
+                            "note.ipynb": {
+                                "type": "article",
+                                "mtime": 1668306119.7475235,
+                                "name": "Self-Remapping Code学习",
+                                "hash": null,
+                                "link": "information_security/rev/self-remap/note.ipynb.html"
+                            }
+                        }
+                    },
+                    "Shim-injection": {
+                        "name": "",
+                        "type": "directory",
+                        "sub": {
+                            "note.ipynb": {
+                                "type": "article",
+                                "mtime": 1668306119.7485223,
+                                "name": "shim-based DLL injection",
+                                "hash": null,
+                                "link": "information_security/rev/Shim-injection/note.ipynb.html"
+                            }
+                        }
+                    },
+                    "soot": {
+                        "name": "",
+                        "type": "directory",
+                        "sub": {
+                            "note.ipynb": {
+                                "type": "article",
+                                "mtime": 1668471417.4742324,
+                                "name": "数据流分析",
+                                "hash": null,
+                                "link": "information_security/rev/soot/note.ipynb.html"
+                            }
+                        }
+                    },
+                    "time-inrelavant-debug": {
+                        "name": "",
+                        "type": "directory",
+                        "sub": {
+                            "note.ipynb": {
+                                "type": "article",
+                                "mtime": 1668570205.0574565,
+                                "name": "时间无关调试学习笔记",
+                                "hash": null,
+                                "link": "information_security/rev/time-inrelavant-debug/note.ipynb.html"
+                            }
+                        }
+                    },
+                    "vba_stomping": {
+                        "name": "",
+                        "type": "directory",
+                        "sub": {
+                            "note.ipynb": {
+                                "type": "article",
+                                "mtime": 1668306119.7515223,
+                                "name": "VBA STOMPING免杀",
+                                "hash": null,
+                                "link": "information_security/rev/vba_stomping/note.ipynb.html"
+                            }
+                        }
+                    },
+                    "win-segment-heap": {
+                        "name": "",
+                        "type": "directory",
+                        "sub": {
+                            "note.ipynb": {
+                                "type": "article",
+                                "mtime": 1668306119.7525225,
+                                "name": "Windows Segment Heap学习",
+                                "hash": null,
+                                "link": "information_security/rev/win-segment-heap/note.ipynb.html"
+                            }
+                        }
+                    },
+                    "win_driver": {
+                        "name": "",
+                        "type": "directory",
+                        "sub": {
+                            "note.ipynb": {
+                                "type": "article",
+                                "mtime": 1668306119.7535222,
+                                "name": "Windows驱动开发",
+                                "hash": null,
+                                "link": "information_security/rev/win_driver/note.ipynb.html"
+                            }
+                        }
+                    },
+                    "yara": {
+                        "name": "",
+                        "type": "directory",
+                        "sub": {
+                            "note.ipynb": {
+                                "type": "article",
+                                "mtime": 1668306119.7545223,
+                                "name": "yara学习笔记",
+                                "hash": null,
+                                "link": "information_security/rev/yara/note.ipynb.html"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

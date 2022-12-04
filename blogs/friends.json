@@ -1,0 +1,30 @@
+{
+    "information_security": {
+        "name": "信息安全",
+        "type": "directory",
+        "sub": {
+            "all": {
+                "name": "全能型选手",
+                "type": "leaf",
+                "link_list": [
+                    {
+                        "name": "h3arn",
+                        "description": "我會常記先生好，我會常想南山幽。",
+                        "link": "https://h3a.moe"
+                    }
+                ]
+            }
+        }
+    },
+    "other": {
+        "name": "其它",
+        "type": "leaf",
+        "link_list": [
+            {
+                "name": "cubercsl",
+                "description": "all dalao",
+                "link": "https://cubercsl.site/"
+            }
+        ]
+    }
+}
