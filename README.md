@@ -32,5 +32,4 @@
 - [ ] 目录利用js根据`category_list.json`生成
 - [ ] about改为json模式并利用js生成
 - [ ] index改为json模式并利用js生成
-- [ ] 目录列表的生成方式
 - [ ] (可选)夜间模式
