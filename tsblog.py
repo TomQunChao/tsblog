@@ -211,8 +211,7 @@ class Generator:
                     art_info['link']=linkp
                     if 'sub' not in category_list:
                         category_list['sub'] = dict()
-                    if p not in category_list['sub']:
-                        category_list['sub'][p] = art_info
+                    category_list['sub'][p] = art_info
             elif os.path.isdir(cp):
                 if p in self.assets_folder:
                     Util.copy_dir(cp, tpath)
