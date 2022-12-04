@@ -33,5 +33,6 @@
 - [ ] 优化目录表示形式
 - [ ] about改为json模式并利用js生成
 - [ ] index改为json模式并利用js生成
+- [ ] jupyter转html包含过多base64图片导致文件过大，转换成小markdown问题
 - [ ] (可选)夜间模式
 - [ ] (可选)文章搜索功能
