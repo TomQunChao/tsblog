@@ -185,7 +185,13 @@ class Generator:
             category_list['name'] = ''
         if 'type' not in category_list.keys():
             category_list['type'] = 'directory'
-        for p in os.listdir(cpath):
+        dirps=os.listdir(cpath)
+        if 'sub' in category_list:
+            ks=set(category_list['sub'].keys())
+            for s in ks:
+                if s not in dirps:
+                    category_list['sub'].pop(s)
+        for p in dirps:
             cp = os.path.join(cpath, p)
             tpath = os.path.join(self.troot, cpath)
             if os.path.abspath(cp) in self.disallow_dir or p.startswith('.'):

@@ -39,10 +39,6 @@
             "2022-backup"
         ],
         [
-            "ctf_writeup",
-            "leetcode"
-        ],
-        [
             "ai",
             "federated_learning"
         ],
@@ -50,7 +46,8 @@
             "ai",
             "nlp",
             "word2vec"
-        ]
+        ],
+        ["development","algorithm","leetcode"]
     ]
     
 }
