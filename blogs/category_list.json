@@ -32,6 +32,19 @@
                                 "link": "development/algorithm/double-stack/note.ipynb.html"
                             }
                         }
+                    },
+                    "edit-dis": {
+                        "name": "",
+                        "type": "directory",
+                        "sub": {
+                            "note.md": {
+                                "type": "article",
+                                "mtime": 1670508830.411411,
+                                "name": "编辑距离问题学习",
+                                "hash": null,
+                                "link": "development/algorithm/edit-dis/note.md.html"
+                            }
+                        }
                     }
                 }
             },
@@ -81,6 +94,25 @@
                                 "name": "Webhook学习",
                                 "hash": null,
                                 "link": "development/protocol/webhook/note.md.html"
+                            }
+                        }
+                    }
+                }
+            },
+            "os": {
+                "name": "",
+                "type": "directory",
+                "sub": {
+                    "deadlock": {
+                        "name": "",
+                        "type": "directory",
+                        "sub": {
+                            "note.md": {
+                                "type": "article",
+                                "mtime": 1670339388.6202965,
+                                "name": "死锁复习",
+                                "hash": null,
+                                "link": "development/os/deadlock/note.md.html"
                             }
                         }
                     }
@@ -231,7 +263,7 @@
                         "sub": {
                             "note.ipynb": {
                                 "type": "article",
-                                "mtime": 1669904122.80051,
+                                "mtime": 1670555276.8020234,
                                 "name": "实体对齐文献阅读笔记",
                                 "hash": null,
                                 "link": "ai/entity_alignment/survey/note.ipynb.html"
@@ -1043,10 +1075,23 @@
                         "sub": {
                             "note.md": {
                                 "type": "article",
-                                "mtime": 1670248027.8091424,
+                                "mtime": 1670249400.2022917,
                                 "name": "恶意软件签名",
                                 "hash": null,
                                 "link": "information_security/rev/yara/note.md.html"
+                            }
+                        }
+                    },
+                    "asmi": {
+                        "name": "",
+                        "type": "directory",
+                        "sub": {
+                            "note.md": {
+                                "type": "article",
+                                "mtime": 1670252341.630782,
+                                "name": "Powershell反混淆",
+                                "hash": null,
+                                "link": "information_security/rev/asmi/note.md.html"
                             }
                         }
                     }
