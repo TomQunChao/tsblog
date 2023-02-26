@@ -3,7 +3,7 @@
 <head><meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>IKn1ZSkedk</title><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>KLc6dj2sbQ</title><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 
 <style type="text/css">
   pre { line-height: 125%; }
@@ -80,25 +80,6 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 .highlight .vi { color: #19177C } /* Name.Variable.Instance */
 .highlight .vm { color: #19177C } /* Name.Variable.Magic */
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */
-  </style>
-<style type="text/css">
-  
-
-<script>
-    MathJax.Hub.Config({
-        "HTML-CSS": {
-            /*preferredFont: "TeX",*/
-            /*availableFonts: ["TeX", "STIX"],*/
-            styles: {
-                scale: 100,
-                ".MathJax_Display": {
-                    "font-size": "100%",
-                }
-            }
-        }
-    });
-</script>
-    
   </style>
 
 
@@ -13124,7 +13105,18 @@ div#notebook {
 <li>非对比学习：只有正例，学习如何分类正例</li>
 </ul>
 <p>注意力负采样，课程学习</p>
-<h2 id="%E5%8F%82%E8%80%83">&#21442;&#32771;<a class="anchor-link" href="#%E5%8F%82%E8%80%83">&#182;</a></h2><p><a href="https://optimization.cbe.cornell.edu/index.php?title=Main_Page">https://optimization.cbe.cornell.edu/index.php?title=Main_Page</a></p>
+<h3 id="%E5%8F%82%E8%80%83">&#21442;&#32771;<a class="anchor-link" href="#%E5%8F%82%E8%80%83">&#182;</a></h3><p><a href="https://optimization.cbe.cornell.edu/index.php?title=Main_Page">https://optimization.cbe.cornell.edu/index.php?title=Main_Page</a></p>
+<h2 id="%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0">&#25439;&#22833;&#20989;&#25968;<a class="anchor-link" href="#%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0">&#182;</a></h2><h3 id="Ranking-Loss">Ranking Loss<a class="anchor-link" href="#Ranking-Loss">&#182;</a></h3><p>是度量学习，用于预测输入样本之间的相对距离。</p>
+<p><img src="img/20221214221459.png" alt="" /></p>
+<p>$x_a$是锚点样本，正样本对两个样本距离尽可能小，负样本对的距离应该大于某个阈值$m$，$r_a,r_p,r_n$是这些样本的特征表示</p>
+<p>损失函数<img src="img/20221214221649.png" alt="" /></p>
+<p>三元组类型的Randing Loss是正负样本比较<img src="img/20221214221800.png" alt="" /></p>
+<h3 id="Cross-Entropy-Loss">Cross-Entropy Loss<a class="anchor-link" href="#Cross-Entropy-Loss">&#182;</a></h3><p><img src="img/20221214222257.png" alt="" /></p>
+<p>$M$--类别的数量</p>
+<p>$y_{ci}$--如果样本i的真实标签等于i则为1，否则为0</p>
+<p>$p_{ci}$--观测样本i属于类别c的概率</p>
+<h3 id="%E5%8F%82%E8%80%83">&#21442;&#32771;<a class="anchor-link" href="#%E5%8F%82%E8%80%83">&#182;</a></h3><p><a href="https://zhuanlan.zhihu.com/p/158853633">https://zhuanlan.zhihu.com/p/158853633</a></p>
+<h2 id="Frobenius-product">Frobenius product<a class="anchor-link" href="#Frobenius-product">&#182;</a></h2><p>$A:B=\sum\limits_{i,j}A_{ij}B_{ij}$</p>
 
 </div>
 </div>

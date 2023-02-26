@@ -77,6 +77,19 @@
                                 "link": "development/env/win-re/note.ipynb.html"
                             }
                         }
+                    },
+                    "neovim": {
+                        "name": "",
+                        "type": "directory",
+                        "sub": {
+                            "note.md": {
+                                "type": "article",
+                                "mtime": 1677402594.3797576,
+                                "name": "如何安装一个可以安装到离线机器上的NVIM",
+                                "hash": null,
+                                "link": "development/env/neovim/note.md.html"
+                            }
+                        }
                     }
                 }
             },
@@ -113,6 +126,25 @@
                                 "name": "死锁复习",
                                 "hash": null,
                                 "link": "development/os/deadlock/note.md.html"
+                            }
+                        }
+                    }
+                }
+            },
+            "test": {
+                "name": "",
+                "type": "directory",
+                "sub": {
+                    "codeql": {
+                        "name": "",
+                        "type": "directory",
+                        "sub": {
+                            "note.md": {
+                                "type": "article",
+                                "mtime": 1670830179.3738172,
+                                "name": "CodeQL学习",
+                                "hash": null,
+                                "link": "development/test/codeql/note.md.html"
                             }
                         }
                     }
@@ -263,7 +295,7 @@
                         "sub": {
                             "note.ipynb": {
                                 "type": "article",
-                                "mtime": 1670555276.8020234,
+                                "mtime": 1676467800.015147,
                                 "name": "实体对齐文献阅读笔记",
                                 "hash": null,
                                 "link": "ai/entity_alignment/survey/note.ipynb.html"
@@ -342,7 +374,7 @@
                 "sub": {
                     "note.md": {
                         "type": "article",
-                        "mtime": 1666945718.0,
+                        "mtime": 1674173220.5698924,
                         "name": "AI综述",
                         "hash": null,
                         "link": "ai/survey/note.md.html"
