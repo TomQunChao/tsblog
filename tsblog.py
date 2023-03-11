@@ -317,7 +317,7 @@ class Generator:
 
     def deploy(self):
         os.system("git add *")
-        os.system("git commit -m 'tsblog auto commit'")
+        os.system("git commit -m 'tsblog_auto_commit'")
         os.system("git push origin +main")
 
     def generate(self):
